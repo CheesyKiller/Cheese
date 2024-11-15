@@ -34,6 +34,12 @@
     <Filter Include="Matts Custom Libraries\GLM">
       <UniqueIdentifier>{3564ba5e-7b9e-4dc2-a223-457c9a531df5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matts Custom Libraries\KeyboardInput">
+      <UniqueIdentifier>{f4e389fc-f6e2-406a-88b3-613f67f9e14e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\WindowContext">
+      <UniqueIdentifier>{125852fc-a90b-443f-9d1d-5bc4e26de16b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cheese.cpp">
@@ -42,22 +48,10 @@
     <ClCompile Include="WindowContext-Base.ixx">
       <Filter>Module Files</Filter>
     </ClCompile>
-    <ClCompile Include="WindowContext-WindowsImpl.ixx">
-      <Filter>Module Files</Filter>
-    </ClCompile>
     <ClCompile Include="WindowManager.ixx">
       <Filter>Module Files</Filter>
     </ClCompile>
     <ClCompile Include="KHR\KHR.ixx">
-      <Filter>Matts Custom Libraries\KHR</Filter>
-    </ClCompile>
-    <ClCompile Include="KHR\KHR-Enums.ixx">
-      <Filter>Matts Custom Libraries\KHR</Filter>
-    </ClCompile>
-    <ClCompile Include="KHR\KHR-Macros.ixx">
-      <Filter>Matts Custom Libraries\KHR</Filter>
-    </ClCompile>
-    <ClCompile Include="KHR\KHR-Types.ixx">
       <Filter>Matts Custom Libraries\KHR</Filter>
     </ClCompile>
     <ClCompile Include="GLAD\GLAD-V2_1.ixx">
@@ -815,6 +809,18 @@
     </ClCompile>
     <ClCompile Include="WindowContext.ixx">
       <Filter>Module Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardInput.ixx">
+      <Filter>Matts Custom Libraries\KeyboardInput</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardInput-Base.ixx">
+      <Filter>Matts Custom Libraries\KeyboardInput</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardInput-WindowsImpl.ixx">
+      <Filter>Matts Custom Libraries\KeyboardInput</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowContext-WindowsImpl.ixx">
+      <Filter>Matts Custom Libraries\WindowContext</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

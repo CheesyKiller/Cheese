@@ -11,15 +11,34 @@ export import GLAD;
 
 namespace WindowContext {
 
+    LRESULT CALLBACK CustomWndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
+        switch (uMsg) {
+        case WM_SIZE: {
+            int width = LOWORD(lParam);
+            int height = HIWORD(lParam);
+
+            // Call the registered callback if it exists
+            auto callback = reinterpret_cast<std::function<void(int, int)>*>(GetWindowLongPtr(hwnd, GWLP_USERDATA));
+            if (callback && *callback) {
+                (*callback)(width, height);
+            }
+            return 0;
+        }
+        default:
+            return DefWindowProc(hwnd, uMsg, wParam, lParam);
+        }
+    }
+
     struct Window::Impl {
         HWND hwnd;       // Window handle for Windows
         HDC hdc;         // Device context for OpenGL
         HGLRC hglrc;     // OpenGL rendering context
+        std::function<void(int, int)> framebufferSizeCallback;
 
         Impl(int width, int height, std::string_view title, Impl* sharedImpl = nullptr) {
             // Step 1: Register window class
             WNDCLASS wc = { 0 };
-            wc.lpfnWndProc = DefWindowProc;
+            wc.lpfnWndProc = CustomWndProc;
             wc.hInstance = GetModuleHandle(nullptr);
             wc.lpszClassName = L"ContextHandlerWindowClass";
             RegisterClass(&wc);
@@ -33,6 +52,9 @@ namespace WindowContext {
                 CW_USEDEFAULT, CW_USEDEFAULT, width, height,
                 nullptr, nullptr, wc.hInstance, nullptr
             );
+
+            // Handle Resize events
+            SetWindowLongPtr(hwnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(&framebufferSizeCallback));
 
             // Step 3: Set up pixel format for OpenGL
             hdc = GetDC(hwnd);
@@ -96,10 +118,20 @@ namespace WindowContext {
     }
 
     void Window::SwapBuffers() {
-        ::SwapBuffers(impl->hdc);
+        if (!shouldClose) {
+            ::SwapBuffers(impl->hdc);
+        }
+    }
+
+    void Window::Close() {
+		shouldClose = true;
     }
 
     bool Window::ShouldClose() {
+		if (shouldClose) {
+			return true;
+		}
+
         MSG msg;
         if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
             if (msg.message == WM_QUIT) {
@@ -141,4 +173,8 @@ namespace WindowContext {
 	void Window::Hide() {
 		ShowWindow(impl->hwnd, SW_HIDE);
 	}
+
+    void Window::SetFramebufferSizeCallback(std::function<void(int, int)> callback) {
+        impl->framebufferSizeCallback = std::move(callback);
+    }
 }

@@ -106,7 +106,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdclatest</LanguageStandard_C>
-      <AdditionalIncludeDirectories>C:\Users\AbtsJ\source\repos\Cheese\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,6 +132,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Cheese.cpp" />
+    <ClCompile Include="KeyboardInput-Base.ixx" />
+    <ClCompile Include="KeyboardInput-WindowsImpl.ixx" />
+    <ClCompile Include="KeyboardInput.ixx" />
     <ClCompile Include="WindowContext-WindowsImpl.ixx" />
     <ClCompile Include="WindowContext-Base.ixx" />
     <ClCompile Include="WindowContext.ixx" />
@@ -387,9 +390,6 @@
     <ClCompile Include="GLM\glm\modules\GLM-vec4.ixx" />
     <ClCompile Include="GLM\glm\modules\GLM-vector_relational.ixx" />
     <ClCompile Include="GLM\glm\modules\GLM.ixx" />
-    <ClCompile Include="KHR\KHR-Enums.ixx" />
-    <ClCompile Include="KHR\KHR-Macros.ixx" />
-    <ClCompile Include="KHR\KHR-Types.ixx" />
     <ClCompile Include="KHR\KHR.ixx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

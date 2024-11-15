@@ -14,6 +14,8 @@ namespace WindowContext {
         ~Window();
 
         void SwapBuffers();
+
+		void Close();
         bool ShouldClose();
 
         // Future-proofing: Methods to set window properties, handle input, etc.
@@ -27,10 +29,14 @@ namespace WindowContext {
 		void Show();
 		void Hide();
 
+        void SetFramebufferSizeCallback(std::function<void(int, int)> callback);
+
         Window(const Window&) = delete;
         Window& operator=(const Window&) = delete;
 
     private:
+		bool shouldClose = false;
+
         struct Impl;      // Forward declaration of implementation struct
         Impl* impl;       // Pointer to the implementation struct (Pimpl idiom)
     };

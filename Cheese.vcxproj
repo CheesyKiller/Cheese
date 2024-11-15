@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{3667e495-4516-4358-9b5e-c4941a9d2e6d}</ProjectGuid>
+    <RootNamespace>Cheese</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdclatest</LanguageStandard_C>
+      <AdditionalIncludeDirectories>C:\Users\AbtsJ\source\repos\Cheese\GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>OpenGL32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Cheese.cpp" />
+    <ClCompile Include="WindowContext-WindowsImpl.ixx" />
+    <ClCompile Include="WindowContext-Base.ixx" />
+    <ClCompile Include="WindowContext.ixx" />
+    <ClCompile Include="WindowManager.ixx" />
+    <ClCompile Include="GLAD\GLAD.cppm" />
+    <ClCompile Include="GLAD\GLAD.ixx" />
+    <ClCompile Include="GLAD\GLAD-V1_0.ixx" />
+    <ClCompile Include="GLAD\GLAD-V1_1.ixx" />
+    <ClCompile Include="GLAD\GLAD-V1_2.ixx" />
+    <ClCompile Include="GLAD\GLAD-V1_3.ixx" />
+    <ClCompile Include="GLAD\GLAD-V1_4.ixx" />
+    <ClCompile Include="GLAD\GLAD-V1_5.ixx" />
+    <ClCompile Include="GLAD\GLAD-V2_0.ixx" />
+    <ClCompile Include="GLAD\GLAD-V2_1.ixx" />
+    <ClCompile Include="GLAD\GLAD-V3_0.ixx" />
+    <ClCompile Include="GLAD\GLAD-V3_1.ixx" />
+    <ClCompile Include="GLAD\GLAD-V3_2.ixx" />
+    <ClCompile Include="GLAD\GLAD-V3_3.ixx" />
+    <ClCompile Include="GLAD\GLAD-V4_0.ixx" />
+    <ClCompile Include="GLAD\GLAD-V4_1.ixx" />
+    <ClCompile Include="GLAD\GLAD-V4_2.ixx" />
+    <ClCompile Include="GLAD\GLAD-V4_3.ixx" />
+    <ClCompile Include="GLAD\GLAD-V4_4.ixx" />
+    <ClCompile Include="GLAD\GLAD-V4_5.ixx" />
+    <ClCompile Include="GLAD\GLAD-V4_6.ixx" />
+    <ClCompile Include="GLAD\GLAD-Macros.ixx" />
+    <ClCompile Include="GLAD\GLAD-Types.ixx" />
+    <ClCompile Include="GLAD\GLAD-BASE.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-common.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_compute_common.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_compute_vector_relational.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_qualifier.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_setup.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_type_float.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_type_half.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_type_mat2x2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_type_mat2x3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_type_mat2x4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_type_mat3x2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_type_mat3x3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_type_mat3x4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_type_mat4x2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_type_mat4x3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_type_mat4x4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_type_quat.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_type_vec1.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_type_vec2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_type_vec3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-detail_type_vec4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-exponential.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_clip_space.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_common.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double2x2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double2x2_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double2x3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double2x3_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double2x4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double2x4_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double3x2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double3x2_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double3x3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double3x3_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double3x4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double3x4_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double4x2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double4x2_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double4x3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double4x3_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double4x4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_double4x4_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float2x2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float2x2_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float2x3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float2x3_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float2x4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float2x4_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float3x2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float3x2_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float3x3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float3x3_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float3x4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float3x4_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float4x2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float4x2_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float4x3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float4x3_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float4x4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_float4x4_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_projection.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_relational.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_matrix_transform.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_quaternion_common.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_quaternion_double.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_quaternion_double_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_quaternion_exponential.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_quaternion_float.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_quaternion_float_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_quaternion_geometric.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_quaternion_relational.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_quaternion_transform.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_quaternion_trigonometric.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_scalar_common.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_scalar_constants.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_scalar_int_sized.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_scalar_relational.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_scalar_uint_sized.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_scalar_ulp.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_bool1.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_bool1_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_bool2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_bool2_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_bool3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_bool3_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_bool4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_bool4_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_common.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_double1.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_double1_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_double2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_double2_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_double3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_double3_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_double4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_double4_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_float1.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_float1_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_float2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_float2_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_float3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_float3_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_float4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_float4_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_int1.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_int1_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_int2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_int2_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_int3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_int3_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_int4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_int4_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_relational.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_uint1.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_uint1_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_uint2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_uint2_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_uint3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_uint3_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_uint4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_uint4_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-ext_vector_ulp.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-fwd.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-geometric.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-glm.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_bitfield.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_color_space.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_constants.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_epsilon.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_integer.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_matrix_access.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_matrix_integer.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_matrix_inverse.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_matrix_transform.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_noise.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_packing.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_quaternion.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_random.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_reciprocal.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_round.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_type_aligned.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_type_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_type_ptr.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_ulp.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtc_vec1.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_associated_min_max.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_bit.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_closest_point.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_color_encoding.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_color_space.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_color_space_YCoCg.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_common.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_compatibility.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_component_wise.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_dual_quaternion.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_easing.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_euler_angles.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_extend.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_extended_min_max.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_exterior_product.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_fast_exponential.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_fast_square_root.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_fast_trigonometry.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_functions.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_gradient_paint.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_handed_coordinate_space.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_hash.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_integer.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_intersect.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_io.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_log_base.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_matrix_cross_product.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_matrix_decompose.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_matrix_factorisation.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_matrix_interpolation.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_matrix_major_storage.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_matrix_operation.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_matrix_query.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_matrix_transform_2d.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_mixed_product.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_norm.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_normal.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_normalize_dot.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_number_precision.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_optimum_pow.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_orthonormalize.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_perpendicular.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_polar_coordinates.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_projection.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_quaternion.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_range.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_raw_data.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_rotate_normalized_axis.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_rotate_vector.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_scalar_multiplication.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_scalar_relational.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_spline.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_std_based_type.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_string_cast.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_texture.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_transform.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_transform2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_type_aligned.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_type_trait.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_vector_angle.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_vector_query.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_vec_swizzle.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-gtx_wrap.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-integer.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-mat2x2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-mat2x3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-mat2x4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-mat3x2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-mat3x3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-mat3x4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-mat4x2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-mat4x3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-mat4x4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-matrix.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-packing.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-trigonometric.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-vec2.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-vec3.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-vec4.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM-vector_relational.ixx" />
+    <ClCompile Include="GLM\glm\modules\GLM.ixx" />
+    <ClCompile Include="KHR\KHR-Enums.ixx" />
+    <ClCompile Include="KHR\KHR-Macros.ixx" />
+    <ClCompile Include="KHR\KHR-Types.ixx" />
+    <ClCompile Include="KHR\KHR.ixx" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

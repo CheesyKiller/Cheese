@@ -38,8 +38,7 @@ export struct WindowManager {
                 parentWindow = it->get();
             }
             else {
-                std::cerr << "Parent window (" << parentWindowName << ") not found for " << windowName << std::endl;
-                std::terminate();
+				error("Parent window (" + parentWindowName + ") not found for " + windowName);
             }
         }
 
@@ -62,7 +61,9 @@ export struct WindowManager {
         }
         initialCode();
 
+#ifdef _DEBUG
         std::cout << "Created window: " << windowName << std::endl;
+#endif
     }
 
     void run() {

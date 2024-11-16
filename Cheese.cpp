@@ -1,12 +1,16 @@
 #include <stdexcept>
 #include <iostream>
 
+#ifndef _DEBUG
+#include <Windows.h>
+#endif
+
 import WindowManager;
 import KeyboardInput;
 
 int main() {
 	WindowManager* manager = WindowManager::getInstance();
-    
+
     manager->createWindow("Main Window", [] {
             // Initial Code
             glClearColor((float)135/255, (float)206/255, (float)235/255, 1.0);
@@ -25,6 +29,14 @@ int main() {
                 WindowManager::getInstance()->close();
             }
         });
+
+    const char* version = reinterpret_cast<const char*>(glGetString(GL_VERSION));
+    const char* renderer = reinterpret_cast<const char*>(glGetString(GL_RENDERER));
+    const char* vendor = reinterpret_cast<const char*>(glGetString(GL_VENDOR));
+
+    std::cout << "OpenGL Version: " << version << std::endl;
+    std::cout << "Renderer: " << renderer << std::endl;
+    std::cout << "Vendor: " << vendor << std::endl;
 
     // Run the main loop
     manager->run();

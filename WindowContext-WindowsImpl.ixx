@@ -1,13 +1,12 @@
 module;
 
-
+#include <functional>
 #include <stdexcept>
+#include <Windows.h>
 
 export module WindowContext:WindowsImpl;
 export import :Base;
 export import GLAD;
-
-#include <Windows.h>
 
 namespace WindowContext {
 
@@ -64,37 +63,37 @@ namespace WindowContext {
             pfd.cColorBits = 32;
             int pixelFormat = ChoosePixelFormat(hdc, &pfd);
             if (pixelFormat == 0) {
-                throw std::runtime_error("Failed to choose pixel format");
+                error("Failed to choose pixel format for Window " + (std::string)title);
             }
             if (!SetPixelFormat(hdc, pixelFormat, &pfd)) {
-                throw std::runtime_error("Failed to set pixel format");
+				error("Failed to set pixel format for Window " + (std::string)title);
             }
 
             // Step 4: Create OpenGL context
             hglrc = wglCreateContext(hdc);
             if (!hglrc) {
-                throw std::runtime_error("Failed to create OpenGL context");
+				error("Failed to create OpenGL context for Window " + (std::string)title);
             }
 
             // Step 5: Share lists if a shared context is provided
             if (sharedImpl) {
                 if (!wglShareLists(sharedImpl->hglrc, hglrc)) {
                     wglDeleteContext(hglrc);
-                    throw std::runtime_error("Failed to share OpenGL contexts");
+					error("Failed to share OpenGL contexts");
                 }
             }
 
             // Step 6: Make the context current
             if (!wglMakeCurrent(hdc, hglrc)) {
                 wglDeleteContext(hglrc);
-                throw std::runtime_error("Failed to make OpenGL context current");
+				error("Failed to make OpenGL context current");
             }
 
             // Step 7: Load OpenGL functions via GLAD
             if (!gladLoadGLLoader((GLADloadproc)wglGetProcAddress)) {
                 wglMakeCurrent(nullptr, nullptr);
                 wglDeleteContext(hglrc);
-                throw std::runtime_error("Failed to initialize GLAD");
+				error("Failed to initialize GLAD");
             }
         }
 

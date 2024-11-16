@@ -3,6 +3,7 @@
 
 export module GLAD:BASE;
 
+export import DebugLogger;
 export import :Types;
 export import :Macros;
 
@@ -17,7 +18,7 @@ export template <typename T>
 T gladLoadFunction(const char* name, GLADloadproc loader) {
     T func = reinterpret_cast<T>(loader(name));
     if (!func) {
-        throw std::runtime_error(std::string("Failed to load function: ") + name);
+        warning("Failed to load function: " + std::string(name));
     }
     return func;
 }
@@ -26,7 +27,7 @@ export template <typename T>
 T gladLoadCoreFunction(const char* name, const char* loader) {
     T func = reinterpret_cast<T>(GetProcAddress(GetModuleHandleA(loader), name));
     if (!func) {
-        throw std::runtime_error(std::string("Failed to load function: ") + name);
+		warning("Failed to load function: " + std::string(name) + " using loader: " + loader);
     }
     return func;
 }

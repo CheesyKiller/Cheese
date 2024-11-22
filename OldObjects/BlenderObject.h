@@ -2,11 +2,11 @@
 
 #include "MaterialManager.h"
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+import GLM:gtc_type_ptr;
+import GLAD;
+
 #include <vector>
 #include <string>
-#include <glm.hpp>
 
 #ifdef _DEBUG
 #include "VectorOutput.h"
@@ -41,7 +41,7 @@ struct BlenderObjectData {
 };
 
 class BlenderObject {
-    GLuint VAO, VBO, EBO;
+    GLAD::GLuint VAO, VBO, EBO;
 
 public:
     BlenderObjectData blenderData;

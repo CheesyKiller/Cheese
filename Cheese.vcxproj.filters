@@ -40,16 +40,22 @@
     <Filter Include="Matts Custom Libraries\WindowContext">
       <UniqueIdentifier>{125852fc-a90b-443f-9d1d-5bc4e26de16b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matts Custom Libraries\Debug">
+      <UniqueIdentifier>{1e718425-66a9-4eb5-9884-a395930ddf34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\Vulkan">
+      <UniqueIdentifier>{f70c6d21-4617-43bb-adad-1d1d9e1be4af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\Shaders">
+      <UniqueIdentifier>{b08627be-80ea-4bea-bd47-a79ba48413a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\Objects">
+      <UniqueIdentifier>{0b828510-cfd3-4563-b5d5-96a52f2e195b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cheese.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WindowContext-Base.ixx">
-      <Filter>Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WindowManager.ixx">
-      <Filter>Module Files</Filter>
     </ClCompile>
     <ClCompile Include="KHR\KHR.ixx">
       <Filter>Matts Custom Libraries\KHR</Filter>
@@ -807,9 +813,6 @@
     <ClCompile Include="GLM\glm\modules\GLM.ixx">
       <Filter>Matts Custom Libraries\GLM</Filter>
     </ClCompile>
-    <ClCompile Include="WindowContext.ixx">
-      <Filter>Module Files</Filter>
-    </ClCompile>
     <ClCompile Include="KeyboardInput.ixx">
       <Filter>Matts Custom Libraries\KeyboardInput</Filter>
     </ClCompile>
@@ -822,5 +825,46 @@
     <ClCompile Include="WindowContext-WindowsImpl.ixx">
       <Filter>Matts Custom Libraries\WindowContext</Filter>
     </ClCompile>
+    <ClCompile Include="WindowContext.ixx">
+      <Filter>Matts Custom Libraries\WindowContext</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowContext-Base.ixx">
+      <Filter>Matts Custom Libraries\WindowContext</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowManager.ixx">
+      <Filter>Matts Custom Libraries\WindowContext</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugLogger.ixx">
+      <Filter>Matts Custom Libraries\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="VK\vulkan.ixx">
+      <Filter>Matts Custom Libraries\Vulkan</Filter>
+    </ClCompile>
+    <ClCompile Include="Shaders\ShaderSources.ixx">
+      <Filter>Matts Custom Libraries\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.ixx">
+      <Filter>Matts Custom Libraries\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Matts Custom Libraries\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObject.ixx">
+      <Filter>Matts Custom Libraries\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObject.cpp">
+      <Filter>Matts Custom Libraries\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowManager.cpp">
+      <Filter>Matts Custom Libraries\WindowContext</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\VertexShader.glsl">
+      <Filter>Matts Custom Libraries\Shaders</Filter>
+    </None>
+    <None Include="Shaders\FragmentShader.glsl">
+      <Filter>Matts Custom Libraries\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

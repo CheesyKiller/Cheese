@@ -2,6 +2,6 @@ export module GLAD;
 
 export import :V4_6;
 
-export {
+export namespace GLAD {
 	int gladLoadGL(void);
 }

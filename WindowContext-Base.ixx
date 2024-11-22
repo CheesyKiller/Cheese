@@ -15,30 +15,34 @@ namespace WindowContext {
 
         void SwapBuffers();
 
-		void Close();
+        void Close();
         bool ShouldClose();
 
         // Future-proofing: Methods to set window properties, handle input, etc.
         void SetTitle(std::string title);
-		std::string GetTitle() const;
+        std::string GetTitle() const;
 
         void PollEvents();
 
-		void MakeCurrent();
+        void MakeCurrent();
 
-		void Show();
-		void Hide();
+        void Show();
+        void Hide();
+
+        int GetMonitorRefreshRate();
+		void VSync();
 
         void SetFramebufferSizeCallback(std::function<void(int, int)> callback);
 
         Window(const Window&) = delete;
         Window& operator=(const Window&) = delete;
 
+        unsigned int targetFPS;
     private:
 		bool shouldClose = false;
 
-        struct Impl;      // Forward declaration of implementation struct
-        Impl* impl;       // Pointer to the implementation struct (Pimpl idiom)
+        struct Impl;
+        Impl* impl;
     };
 
 }

@@ -2,7 +2,7 @@ export module GLAD:Macros;
 
 import :Types;
 
-export {
+export namespace GLAD {
 	constexpr auto GL_DEPTH_BUFFER_BIT = 0x00000100;
 	constexpr auto GL_STENCIL_BUFFER_BIT = 0x00000400;
 	constexpr auto GL_COLOR_BUFFER_BIT = 0x00004000;

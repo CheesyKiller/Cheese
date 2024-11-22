@@ -1,6 +1,6 @@
 import GLAD;
 
-static PFNWGLGETPROCADDRESSPROC_PRIVATE gladGetProcAddressPtr;
+static GLAD::PFNWGLGETPROCADDRESSPROC_PRIVATE gladGetProcAddressPtr;
 
 static void* get_proc(const char* namez);
 
@@ -34,7 +34,7 @@ static int open_gl(void) {
     if (libGL != nullptr) {
         void (*tmp)(void);
         tmp = (void(*)(void)) GetProcAddress(libGL, "wglGetProcAddress");
-        gladGetProcAddressPtr = (PFNWGLGETPROCADDRESSPROC_PRIVATE)tmp;
+        gladGetProcAddressPtr = (GLAD::PFNWGLGETPROCADDRESSPROC_PRIVATE)tmp;
         return gladGetProcAddressPtr != nullptr;
     }
 #endif
@@ -79,7 +79,7 @@ int open_gl(void) {
 #if defined(__APPLE__) || defined(__HAIKU__)
             return 1;
 #else
-            gladGetProcAddressPtr = (PFNGLXGETPROCADDRESSPROC_PRIVATE)dlsym(libGL,
+            gladGetProcAddressPtr = (GLAD::PFNGLXGETPROCADDRESSPROC_PRIVATE)dlsym(libGL,
                 "glXGetProcAddressARB");
             return gladGetProcAddressPtr != nullptr;
 #endif
@@ -121,7 +121,7 @@ void* get_proc(const char* namez) {
 
 bool gladLoaded = false;
 
-int gladLoadGL(void) {
+int GLAD::gladLoadGL(void) {
     if (gladLoaded) {
         return 1;
     }
@@ -129,7 +129,7 @@ int gladLoadGL(void) {
     int status = 0;
 
     if (open_gl()) {
-        status = gladLoadGLLoader(&get_proc);
+        status = GLAD::gladLoadGLLoader(&get_proc);
         close_gl();
     }
 
@@ -137,7 +137,7 @@ int gladLoadGL(void) {
     return status;
 }
 
-int gladLoadGLLoader(GLADloadproc load) {
-	GLAD_4_6::load_GL_RECURSIVE(load);
+int GLAD::gladLoadGLLoader(GLADloadproc load) {
+	GLAD::GLAD_4_6::load_GL_RECURSIVE(load);
     return 1;
 }

@@ -3,6 +3,8 @@ module;
 #include <functional>
 #include <stdexcept>
 #include <Windows.h>
+#include <chrono>
+#include <thread>
 
 export module WindowContext:WindowsImpl;
 export import :Base;
@@ -16,13 +18,16 @@ namespace WindowContext {
             int width = LOWORD(lParam);
             int height = HIWORD(lParam);
 
-            // Call the registered callback if it exists
             auto callback = reinterpret_cast<std::function<void(int, int)>*>(GetWindowLongPtr(hwnd, GWLP_USERDATA));
             if (callback && *callback) {
                 (*callback)(width, height);
             }
+
+            // Redraw the window during resizing
+            InvalidateRect(hwnd, nullptr, TRUE);
             return 0;
         }
+
         default:
             return DefWindowProc(hwnd, uMsg, wParam, lParam);
         }
@@ -90,7 +95,7 @@ namespace WindowContext {
             }
 
             // Step 7: Load OpenGL functions via GLAD
-            if (!gladLoadGLLoader((GLADloadproc)wglGetProcAddress)) {
+            if (!GLAD::gladLoadGLLoader((GLAD::GLADloadproc)wglGetProcAddress)) {
                 wglMakeCurrent(nullptr, nullptr);
                 wglDeleteContext(hglrc);
 				error("Failed to initialize GLAD");
@@ -119,6 +124,25 @@ namespace WindowContext {
     void Window::SwapBuffers() {
         if (!shouldClose) {
             ::SwapBuffers(impl->hdc);
+
+            if (targetFPS != 0) {
+                static auto lastTime = std::chrono::high_resolution_clock::now();
+                auto currentTime = std::chrono::high_resolution_clock::now();
+
+                // Calculate the frame duration in microseconds
+                const int frameDurationMicroseconds = 1000000 / targetFPS;
+
+                // Measure the elapsed time since the last frame
+                auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(currentTime - lastTime).count();
+
+                // If the frame finished early, wait
+                if (elapsed < frameDurationMicroseconds) {
+                    std::this_thread::sleep_for(std::chrono::microseconds(frameDurationMicroseconds - elapsed));
+                }
+
+                // Update the last frame time
+                lastTime = std::chrono::high_resolution_clock::now();
+            }
         }
     }
 
@@ -173,7 +197,25 @@ namespace WindowContext {
 		ShowWindow(impl->hwnd, SW_HIDE);
 	}
 
+	int Window::GetMonitorRefreshRate() {
+		DEVMODE devMode;
+		EnumDisplaySettings(nullptr, ENUM_CURRENT_SETTINGS, &devMode);
+		return devMode.dmDisplayFrequency;
+	}
+
+    void Window::VSync() {
+		targetFPS = GetMonitorRefreshRate();
+    }
+
     void Window::SetFramebufferSizeCallback(std::function<void(int, int)> callback) {
-        impl->framebufferSizeCallback = std::move(callback);
+        impl->framebufferSizeCallback = [callback](int width, int height) {
+            // Update the OpenGL viewport
+            GLAD::glViewport(0, 0, width, height);
+
+            // Call the user-provided callback, if any
+            if (callback) {
+                callback(width, height);
+            }
+            };
     }
 }

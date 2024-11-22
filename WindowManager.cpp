@@ -12,7 +12,7 @@ WindowManager* WindowManager::getInstance() {
 }
 
 WindowManager::~WindowManager() {
-    close(); // Clean up all windows
+    close();
 }
 
 void WindowManager::createWindow(const std::string& windowName, std::function<void()> initialCode,
@@ -102,7 +102,7 @@ void WindowManager::run() {
                 window->SwapBuffers();
             }
         }
-        if (allClosed) break; // Exit loop if all windows are closed
+        if (allClosed) break;
     }
 }
 

@@ -864,9 +864,6 @@
     <ClCompile Include="OldObjects\BlenderObjectReader.cpp">
       <Filter>Matts Custom Libraries\OldObjects</Filter>
     </ClCompile>
-    <ClCompile Include="OldObjects\DynamicWindow.cpp">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
-    </ClCompile>
     <ClCompile Include="OldObjects\Main.cpp">
       <Filter>Matts Custom Libraries\OldObjects</Filter>
     </ClCompile>
@@ -907,9 +904,6 @@
     <ClInclude Include="OldObjects\Camera.h">
       <Filter>Matts Custom Libraries\OldObjects</Filter>
     </ClInclude>
-    <ClInclude Include="OldObjects\DynamicWindow.h">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
-    </ClInclude>
     <ClInclude Include="OldObjects\MaterialManager.h">
       <Filter>Matts Custom Libraries\OldObjects</Filter>
     </ClInclude>
@@ -929,6 +923,9 @@
       <Filter>Matts Custom Libraries\OldObjects</Filter>
     </ClInclude>
     <ClInclude Include="OldObjects\VectorOutput.h">
+      <Filter>Matts Custom Libraries\OldObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Shaders\stb_image.h">
       <Filter>Matts Custom Libraries\OldObjects</Filter>
     </ClInclude>
   </ItemGroup>

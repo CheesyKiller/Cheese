@@ -7,8 +7,6 @@
 
 import ShaderSources;
 
-#include "DynamicWindow.h"
-
 std::shared_ptr<ShaderProgram> ShaderProgram::instance;
 
 ShaderProgram::ShaderProgram() {

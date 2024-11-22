@@ -56,8 +56,7 @@ ThreadedObjectLoader::~ThreadedObjectLoader() {
 
 void ThreadedObjectLoader::writer_thread() {
     try {
-		WindowManager::getInstance()->getInstance()->createWindow("Writer", []() {}, []() {}, 800, 600);
-        DynamicWindow::getInstance()->setGLFWContextWriter();
+		WindowManager::getInstance()->createWindow("Writer", []() {}, []() {}, 800, 600);
 
         while (!stop) {
             std::unique_lock<std::mutex> lk(m);
@@ -82,8 +81,6 @@ void ThreadedObjectLoader::writer_thread() {
             cv.notify_one();
         }
 
-        glfwMakeContextCurrent(nullptr);
-        DynamicWindow::getInstance()->deleteGLFWWriterContext();
         std::cout << "Worker thread: context released" << std::endl;
     }
     catch (const std::exception& e) {
@@ -116,21 +113,17 @@ void ThreadedObjectLoader::update_detector_thread() {
 
 void ThreadedObjectLoader::draw_thread() {
     try {
-        DynamicWindow::getInstance()->setGLFWContextDraw();
+        WindowManager::getInstance()->createWindow("Draw", []() {}, []() {}, 800, 600);
 
         while (!stop) {
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
             {
                 std::lock_guard<std::mutex> read_lk(read_m);
-                DynamicWindow::getInstance()->setGLFWContextInternal();
-                std::cout << "Draw thread: context set and drawing" << std::endl;
-                DynamicWindow::getInstance()->draw();
+				WindowManager::getInstance()->run();
             }
         }
 
-        glfwMakeContextCurrent(nullptr);
-        DynamicWindow::getInstance()->deleteGLFWDrawContext();
         std::cout << "Draw thread: context released" << std::endl;
     }
     catch (const std::exception& e) {

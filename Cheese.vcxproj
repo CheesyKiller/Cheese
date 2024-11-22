@@ -190,7 +190,6 @@
     <ClCompile Include="KeyboardInput.ixx" />
     <ClCompile Include="OldObjects\BlenderObject.cpp" />
     <ClCompile Include="OldObjects\BlenderObjectReader.cpp" />
-    <ClCompile Include="OldObjects\DynamicWindow.cpp" />
     <ClCompile Include="OldObjects\Main.cpp" />
     <ClCompile Include="OldObjects\MaterialManager.cpp" />
     <ClCompile Include="OldObjects\ObjectBase.cpp" />
@@ -469,7 +468,6 @@
     <ClInclude Include="OldObjects\BlenderObject.h" />
     <ClInclude Include="OldObjects\BlenderObjectReader.h" />
     <ClInclude Include="OldObjects\Camera.h" />
-    <ClInclude Include="OldObjects\DynamicWindow.h" />
     <ClInclude Include="OldObjects\MaterialManager.h" />
     <ClInclude Include="OldObjects\ObjectBase.h" />
     <ClInclude Include="OldObjects\ReadBlenderFile.h" />
@@ -477,6 +475,7 @@
     <ClInclude Include="OldObjects\ShaderProgram.h" />
     <ClInclude Include="OldObjects\ThreadedObjectLoader.h" />
     <ClInclude Include="OldObjects\VectorOutput.h" />
+    <ClInclude Include="Shaders\stb_image.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

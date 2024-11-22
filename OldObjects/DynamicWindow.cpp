@@ -7,23 +7,13 @@ std::shared_ptr<DynamicWindow> DynamicWindow::instance = nullptr;
 std::once_flag DynamicWindow::initInstanceFlag;
 
 void checkOpenGLError(const std::string& location) {
-    GLenum err;
-    while ((err = glGetError()) != GL_NO_ERROR) {
+    GLAD::GLenum err;
+    while ((err = GLAD::glGetError()) != GLAD::GL_NO_ERROR) {
         std::cerr << "OpenGL error " << err << " at " << location << std::endl;
     }
 }
 
 DynamicWindow::DynamicWindow() {
-    std::cout << "Initializing GLFW" << std::endl;
-    if (!glfwInit()) {
-        throw std::runtime_error("Failed to initialize GLFW");
-    }
-
-    std::cout << "Setting GLFW context version" << std::endl;
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
     createGLFWInternalContext();
     std::cout << "Making context current" << std::endl;
     glfwMakeContextCurrent(internalContext);
@@ -159,10 +149,10 @@ void DynamicWindow::setGLFWContextInternal() {
     checkOpenGLError("setGLFWContextInternal");
 }
 
-GLFWwindow* DynamicWindow::getWindow() {
+WindowContext::Window* DynamicWindow::getWindow() {
     return internalContext;
 }
 
-void framebuffer_size_callback(GLFWwindow* internalWindow, int width, int height) {
+void framebuffer_size_callback(WindowContext::Window* internalWindow, int width, int height) {
     glViewport(0, 0, width, height);
 }

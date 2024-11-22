@@ -27,9 +27,9 @@ export struct Shader {
 		}
 	}
 
-	std::shared_ptr<RenderObject> createObject() {
+	std::shared_ptr<RenderObject> createObject(std::shared_ptr<RenderObject> renderObject = std::make_shared<RenderObject>()) {
 		this->Use();
-		renderObjects.push_back(std::make_shared<RenderObject>());
+		renderObjects.push_back(renderObject);
 		return renderObjects.back();
 	}
 };

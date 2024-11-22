@@ -5,39 +5,38 @@
 #include "ShaderProgram.h"
 #include "ShaderBase.h"
 
-#include <Vertex.glsl>
-#include <Fragment.glsl>
+import ShaderSources;
 
 #include "DynamicWindow.h"
 
 std::shared_ptr<ShaderProgram> ShaderProgram::instance;
 
 ShaderProgram::ShaderProgram() {
-    this->id = glCreateProgram();
+    this->id = GLAD::glCreateProgram();
 
-    ShaderBase vertexShader = ShaderBase(id, "Vertex", GL_VERTEX_SHADER, VERTEX_GLSL_SRC);
-    ShaderBase fragmentShader = ShaderBase(id, "Fragment", GL_FRAGMENT_SHADER, FRAGMENT_GLSL_SRC);
+    ShaderBase vertexShader = ShaderBase(id, "Vertex", GLAD::GL_VERTEX_SHADER, VertexShaderSource);
+    ShaderBase fragmentShader = ShaderBase(id, "Fragment", GLAD::GL_FRAGMENT_SHADER, FragmentShaderSource);
 
     int success;
     char infoLog[512];
 
-    glLinkProgram(id);
-    glGetProgramiv(id, GL_LINK_STATUS, &success);
+    GLAD::glLinkProgram(id);
+    GLAD::glGetProgramiv(id, GLAD::GL_LINK_STATUS, &success);
 #ifdef _DEBUG
     if (!success) {
-        glGetProgramInfoLog(id, 512, NULL, infoLog);
+        GLAD::glGetProgramInfoLog(id, 512, NULL, infoLog);
         std::cerr << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
     }
 
-    GLenum error = glGetError();
-    if (error != GL_NO_ERROR) {
+    GLAD::GLenum error = GLAD::glGetError();
+    if (error != GLAD::GL_NO_ERROR) {
         std::cerr << "OpenGL Error: " << error << std::endl;
     }
 #endif
 }
 
 ShaderProgram::~ShaderProgram() {
-	glDeleteProgram(id);
+    GLAD::glDeleteProgram(id);
 
 #ifdef _DEBUG
 	std::cout << "Shader Removed" << std::endl;
@@ -47,7 +46,7 @@ ShaderProgram::~ShaderProgram() {
 bool TESTBOOL = true;
 
 void ShaderProgram::draw() {
-    glUseProgram(id);
+    GLAD::glUseProgram(id);
     for (unsigned int i = 0; i < currentObjects.size(); i++) {
         currentObjects[i]->draw();
 

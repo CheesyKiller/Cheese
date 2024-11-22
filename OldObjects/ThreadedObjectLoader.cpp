@@ -1,5 +1,7 @@
 #include "ThreadedObjectLoader.h"
-#include "DynamicWindow.h"
+
+import WindowManager;
+
 #include "BlenderObjectReader.h"
 #include "ShaderProgram.h"
 #include "BlenderObject.h"
@@ -54,6 +56,7 @@ ThreadedObjectLoader::~ThreadedObjectLoader() {
 
 void ThreadedObjectLoader::writer_thread() {
     try {
+		WindowManager::getInstance()->getInstance()->createWindow("Writer", []() {}, []() {}, 800, 600);
         DynamicWindow::getInstance()->setGLFWContextWriter();
 
         while (!stop) {

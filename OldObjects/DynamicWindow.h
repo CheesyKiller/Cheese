@@ -4,8 +4,9 @@
 #include <iostream>
 #endif
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+import GLAD;
+import WindowContext;
+
 #include "ShaderProgram.h"
 #include "ThreadedObjectLoader.h"
 #include <memory>
@@ -19,9 +20,9 @@ private:
 
     static std::once_flag initInstanceFlag;
 
-    GLFWwindow* internalContext;
-    GLFWwindow* writerContext;
-    GLFWwindow* drawContext;
+    WindowContext::Window* internalContext;
+    WindowContext::Window* writerContext;
+    WindowContext::Window* drawContext;
 
     float r = 0.0f;
     float g = 0.0f;
@@ -43,7 +44,7 @@ public:
     void close();
     bool isPressed(int glfw_key);
     void setBackgroundColor(float r, float g, float b, float a);
-    GLFWwindow* getWindow();
+    WindowContext::Window* getWindow();
 
     void draw();
 
@@ -63,4 +64,4 @@ public:
     DynamicWindow& operator=(const DynamicWindow&) = delete;
 };
 
-void framebuffer_size_callback(GLFWwindow* internalWindow, int width, int height);
+void framebuffer_size_callback(WindowContext::Window* internalWindow, int width, int height);

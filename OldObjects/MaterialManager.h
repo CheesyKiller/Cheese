@@ -1,6 +1,7 @@
 #pragma once
 
-#include "glm.hpp"
+import GLM;
+
 #include <string>
 #include <vector>
 

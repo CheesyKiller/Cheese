@@ -1,7 +1,7 @@
 #pragma once
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+import GLAD;
+
 #include <string>
 
 #ifdef _DEBUG
@@ -24,7 +24,7 @@ private:
 	std::string ToUpperCase(const std::string& str);
 
 protected:
-	ShaderBase(unsigned int shaderProgram, const std::string& shaderName, const GLuint& glShaderType, const std::string& shaderSourceInput);
+	ShaderBase(unsigned int shaderProgram, const std::string& shaderName, const GLAD::GLuint& glShaderType, const std::string& shaderSourceInput);
 
 	void compileShader() const;
 	void attachShader(const unsigned int& shaderProgram) const;

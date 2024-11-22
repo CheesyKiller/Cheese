@@ -9,12 +9,12 @@
 #include <filesystem>
 
 ShaderBase::~ShaderBase() {
-	glDeleteShader(shaderIndex);
+	GLAD::glDeleteShader(shaderIndex);
 }
 
-ShaderBase::ShaderBase(unsigned int shaderProgram, const std::string& shaderName, const GLuint& glShaderType, const std::string& shaderSourceInput) {
+ShaderBase::ShaderBase(unsigned int shaderProgram, const std::string& shaderName, const GLAD::GLuint& glShaderType, const std::string& shaderSourceInput) {
 	this->shaderSource = shaderSourceInput;
-	this->shaderIndex = glCreateShader(glShaderType);
+	this->shaderIndex = GLAD::glCreateShader(glShaderType);
 #ifdef _DEBUG
 	this->shaderName = ToUpperCase(shaderName);
 #endif
@@ -27,14 +27,14 @@ void ShaderBase::compileShader() const {
 	char infoLog[512];
 
 	const char* sourcePtr = shaderSource.c_str();
-	glShaderSource(shaderIndex, 1, &sourcePtr, NULL);
-	glCompileShader(shaderIndex);
+    GLAD::glShaderSource(shaderIndex, 1, &sourcePtr, NULL);
+    GLAD::glCompileShader(shaderIndex);
 
-	glGetShaderiv(this->shaderIndex, GL_COMPILE_STATUS, &success);
+    GLAD::glGetShaderiv(this->shaderIndex, GLAD::GL_COMPILE_STATUS, &success);
 
 	if (!success)
 	{
-		glGetShaderInfoLog(this->shaderIndex, 512, NULL, infoLog);
+        GLAD::glGetShaderInfoLog(this->shaderIndex, 512, NULL, infoLog);
 #ifdef _DEBUG
 		std::cout << "ERROR::SHADER::" << shaderName << "::COMPILATION_FAILED\n" << std::endl << shaderSource << std::endl << std::endl;
 #endif
@@ -42,35 +42,35 @@ void ShaderBase::compileShader() const {
 }
 
 void ShaderBase::attachShader(const unsigned int& shaderProgram) const {
-    glAttachShader(shaderProgram, this->shaderIndex);
+    GLAD::glAttachShader(shaderProgram, this->shaderIndex);
 
     // Check for OpenGL errors
-    GLenum error = glGetError();
+    GLAD::GLenum error = GLAD::glGetError();
 #ifdef _DEBUG
-    if (error != GL_NO_ERROR) {
+    if (error != GLAD::GL_NO_ERROR) {
         std::cerr << "Error attaching shader: " << error << std::endl;
     }
 #endif
 
     // Check shader program info log
-    GLint infoLogLength = 0;
-    glGetProgramiv(shaderProgram, GL_INFO_LOG_LENGTH, &infoLogLength);
+    GLAD::GLint infoLogLength = 0;
+    GLAD::glGetProgramiv(shaderProgram, GLAD::GL_INFO_LOG_LENGTH, &infoLogLength);
     if (infoLogLength > 0) {
         std::vector<char> infoLog(infoLogLength);
-        glGetProgramInfoLog(shaderProgram, infoLogLength, nullptr, infoLog.data());
+        GLAD::glGetProgramInfoLog(shaderProgram, infoLogLength, nullptr, infoLog.data());
 #ifdef _DEBUG
         std::cerr << "Program Info Log: " << infoLog.data() << std::endl;
 #endif // _DEBUG
     }
 
     // Check attached shaders
-    GLint attachedShadersCount = 0;
-    glGetProgramiv(shaderProgram, GL_ATTACHED_SHADERS, &attachedShadersCount);
-    std::vector<GLuint> attachedShaders(attachedShadersCount);
-    glGetAttachedShaders(shaderProgram, attachedShadersCount, nullptr, attachedShaders.data());
+    GLAD::GLint attachedShadersCount = 0;
+    GLAD::glGetProgramiv(shaderProgram, GLAD::GL_ATTACHED_SHADERS, &attachedShadersCount);
+    std::vector<GLAD::GLuint> attachedShaders(attachedShadersCount);
+    GLAD::glGetAttachedShaders(shaderProgram, attachedShadersCount, nullptr, attachedShaders.data());
 
     bool shaderAttached = false;
-    for (GLuint shader : attachedShaders) {
+    for (GLAD::GLuint shader : attachedShaders) {
         if (shader == this->shaderIndex) {
             shaderAttached = true;
             break;

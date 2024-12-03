@@ -1,8 +1,7 @@
-#pragma once
+export module RenderObjectBlenderPython;
 
-#include <Python.h>
-
-const char* embedded_python_read_blender_data_script = R"(
+export namespace RenderObject {
+    const char* embedded_python_read_blender_data_script = R"(
 def read_blender_data(filepath):
     try:
         import bpy
@@ -21,7 +20,8 @@ def read_blender_data(filepath):
             "vertices": [],
             "colors": [],
             "indices": [],
-            "materials": []
+            "materials": [],
+            "face_material_indices": []
         }
 
         for scene in bpy.data.scenes:
@@ -47,13 +47,50 @@ def read_blender_data(filepath):
                     bpy.ops.mesh.quads_convert_to_tris(quad_method='BEAUTY', ngon_method='BEAUTY')
                     bpy.ops.object.mode_set(mode='OBJECT')
 
-                    # Read indices
+                    # Initialize materials list and mapping
+                    material_data_list = []
+                    material_indices_map = {}
+
+                    # Read materials and create a mapping
+                    for idx, material in enumerate(obj.data.materials):
+                        material_info = {}
+                        material_info['name'] = material.name
+
+                        # Get the base color, including alpha
+                        if material.use_nodes:
+                            # Assume Principled BSDF node
+                            principled_node = next((node for node in material.node_tree.nodes if node.type == 'BSDF_PRINCIPLED'), None)
+                            if principled_node:
+                                base_color = principled_node.inputs['Base Color'].default_value  # RGBA
+                                material_info['baseColor'] = [base_color[0], base_color[1], base_color[2], base_color[3]]
+                            else:
+                                material_info['baseColor'] = [1.0, 1.0, 1.0, 1.0]
+                        else:
+                            # If not using nodes, get base color from diffuse_color
+                            base_color = material.diffuse_color  # RGBA
+                            material_info['baseColor'] = [base_color[0], base_color[1], base_color[2], base_color[3]]
+
+                        material_data_list.append(material_info)
+                        material_indices_map[material.name] = idx
+
+                    result["materials"] = material_data_list
+
+                    # Read indices and material indices per face
+                    face_material_indices = []
+
                     for poly in mesh.polygons:
+                        # Get material index for the face
+                        mat_index = poly.material_index
+                        face_material_indices.append(mat_index)
+
+                        # Process indices
                         if len(poly.vertices) == 3:
                             indices = list(poly.vertices)
                             result["indices"].extend(indices)
                         else:
                             print(f"Non-triangle face detected: {poly.vertices}")
+
+                    result["face_material_indices"] = face_material_indices
 
                     # Read vertex colors if available
                     if mesh.vertex_colors:
@@ -66,11 +103,7 @@ def read_blender_data(filepath):
                         for _ in mesh.vertices:
                             result["colors"].extend([1.0, 1.0, 1.0, 1.0])
 
-                    # Read materials
-                    for material in obj.data.materials:
-                        result["materials"].append(material.name)
-
-        return result
+            return result
 
     except AttributeError as e:
         print(f"AttributeError: {e}")
@@ -81,3 +114,4 @@ def read_blender_data(filepath):
         print(f"An error occurred: {e}")
         return {}
 )";
+}

@@ -1,10 +1,30 @@
 #version 330 core
 
+// Input from vertex shader
+in vec3 FragPos; // Position in world space
+
+// Output fragment color
 out vec4 FragColor;
 
-in vec3 ourColor;
+// Material properties
+struct Material {
+    vec4 baseColor;    // Includes alpha
+    float metallic;
+    float roughness;
+    vec3 emission;
+    // Add other material properties as needed
+};
+
+uniform Material material;
 
 void main()
 {
-    FragColor = vec4(ourColor, 1.0);
+    // Use the base color from the material
+    vec4 color = material.baseColor;
+
+    // Apply emission (additive)
+    color.rgb += material.emission;
+
+    // Output the final color with alpha
+    FragColor = color;
 }

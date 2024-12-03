@@ -1,5 +1,9 @@
 module;
 
+#define GLM_FORCE_INLINE
+#define GLM_ENABLE_EXPERIMENTAL
+#define GLM_FORCE_ALIGNED_GENTYPES
+
 export module GLM:ext_quaternion_geometric;
 
-#include <glm/ext/quaternion_geometric.hpp>
+export import <glm/ext/quaternion_geometric.hpp>;

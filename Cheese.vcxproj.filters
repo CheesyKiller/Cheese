@@ -52,8 +52,8 @@
     <Filter Include="Matts Custom Libraries\Objects">
       <UniqueIdentifier>{0b828510-cfd3-4563-b5d5-96a52f2e195b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Matts Custom Libraries\OldObjects">
-      <UniqueIdentifier>{7e101d25-7906-4996-9169-6edc44b80ee9}</UniqueIdentifier>
+    <Filter Include="Matts Custom Libraries\GLAD\WGL">
+      <UniqueIdentifier>{9f6b9b59-d311-451f-9342-e8ccfee73a1f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -861,29 +861,59 @@
     <ClCompile Include="WindowManager.cpp">
       <Filter>Matts Custom Libraries\WindowContext</Filter>
     </ClCompile>
-    <ClCompile Include="OldObjects\BlenderObjectReader.cpp">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
+    <ClCompile Include="RenderObjectData.ixx">
+      <Filter>Matts Custom Libraries\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="OldObjects\Main.cpp">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
+    <ClCompile Include="RenderObjectKeyframe.ixx">
+      <Filter>Matts Custom Libraries\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="OldObjects\MaterialManager.cpp">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
+    <ClCompile Include="RenderObjectShapeKey.ixx">
+      <Filter>Matts Custom Libraries\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="OldObjects\ObjectBase.cpp">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
+    <ClCompile Include="RenderObjectMaterial.ixx">
+      <Filter>Matts Custom Libraries\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="OldObjects\ShaderBase.cpp">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
+    <ClCompile Include="RenderObjectMaterialManager.ixx">
+      <Filter>Matts Custom Libraries\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="OldObjects\ShaderProgram.cpp">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
+    <ClCompile Include="RenderObjectMaterialManager.cpp">
+      <Filter>Matts Custom Libraries\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="OldObjects\ThreadedObjectLoader.cpp">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
+    <ClCompile Include="RenderObjectBlenderReader.ixx">
+      <Filter>Matts Custom Libraries\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="OldObjects\BlenderObject.cpp">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
+    <ClCompile Include="RenderObjectBlenderReader.cpp">
+      <Filter>Matts Custom Libraries\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectBlenderPython.ixx">
+      <Filter>Matts Custom Libraries\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugVectorOutput.ixx">
+      <Filter>Matts Custom Libraries\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectThreadedLoader.ixx">
+      <Filter>Matts Custom Libraries\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectThreadedLoader.cpp">
+      <Filter>Matts Custom Libraries\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectTexture.ixx">
+      <Filter>Matts Custom Libraries\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectTexture.cpp">
+      <Filter>Matts Custom Libraries\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticSystemPaths.ixx">
+      <Filter>Matts Custom Libraries\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD-WGL.ixx">
+      <Filter>Matts Custom Libraries\GLAD\WGL</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowContextCamera.ixx">
+      <Filter>Matts Custom Libraries\WindowContext</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowContextCamera.cpp">
+      <Filter>Matts Custom Libraries\WindowContext</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -893,40 +923,14 @@
     <None Include="Shaders\FragmentShader.glsl">
       <Filter>Matts Custom Libraries\Shaders</Filter>
     </None>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="OldObjects\BlenderObject.h">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="OldObjects\BlenderObjectReader.h">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="OldObjects\Camera.h">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="OldObjects\MaterialManager.h">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="OldObjects\ObjectBase.h">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="OldObjects\ReadBlenderFile.h">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="OldObjects\ShaderBase.h">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="OldObjects\ShaderProgram.h">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="OldObjects\ThreadedObjectLoader.h">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="OldObjects\VectorOutput.h">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
-    </ClInclude>
     <ClInclude Include="Shaders\stb_image.h">
-      <Filter>Matts Custom Libraries\OldObjects</Filter>
+      <Filter>Matts Custom Libraries\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Matts Custom Libraries\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,8 +1,6 @@
-module;
-
-#include <cstdint>
-
 export module KHR;
+
+import std.core;
 
 export namespace KHR {
     // Export constants

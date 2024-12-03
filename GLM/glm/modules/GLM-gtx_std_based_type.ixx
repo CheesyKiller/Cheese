@@ -1,5 +1,9 @@
 module;
 
+#define GLM_FORCE_INLINE
+#define GLM_ENABLE_EXPERIMENTAL
+#define GLM_FORCE_ALIGNED_GENTYPES
+
 export module GLM:gtx_std_based_type;
 
-#include <glm/gtx/std_based_type.hpp>
+export import <glm/gtx/std_based_type.hpp>;

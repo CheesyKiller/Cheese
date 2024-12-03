@@ -14,7 +14,7 @@
 
 // Now Forced by build config if modules are used
 #if (GLM_CONFIG_ALIGNED_GENTYPES == GLM_DISABLE)
-//#	error "GLM: Aligned gentypes require to enable C++ language extensions. Define GLM_FORCE_ALIGNED_GENTYPES before including GLM headers to use aligned types."
+#	error "GLM: Aligned gentypes require to enable C++ language extensions. Define GLM_FORCE_ALIGNED_GENTYPES before including GLM headers to use aligned types."
 #endif
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
@@ -33,7 +33,7 @@
 #include "../gtc/vec1.hpp"
 #include "../vec2.hpp"
 #include "../vec3.hpp"
-#include "../vec4.hpp"
+#include "../vec4.hpp"*/
 
 namespace glm
 {

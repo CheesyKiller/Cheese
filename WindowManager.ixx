@@ -1,10 +1,3 @@
-module;
-
-#include <string>
-#include <vector>
-#include <functional>
-#include <memory>
-
 export module WindowManager;
 
 export import WindowContext;
@@ -12,6 +5,7 @@ export import WindowContext;
 export struct WindowManager {
     std::vector<std::shared_ptr<WindowContext::Window>> windows;
     std::vector<std::function<void()>> perFrameCodes;
+    bool centerMouse = true;
 
     static WindowManager* getInstance();
 
@@ -23,14 +17,15 @@ export struct WindowManager {
 
     void limitFrameRate(const std::string& windowName, unsigned int targetFPS);
     int getRefreshRate(const std::string& windowName);
-    void vSync(const std::string& windowName);
+    void setVSync(const std::string& windowName, const bool& state);
 
     void run();
     void close();
 
+    std::shared_ptr<WindowContext::Camera> getWindowCamera(const std::string& windowName);
+
     WindowManager(const WindowManager&) = delete;
     WindowManager& operator=(const WindowManager&) = delete;
-
 private:
-    WindowManager() = default;
+    WindowManager();
 };

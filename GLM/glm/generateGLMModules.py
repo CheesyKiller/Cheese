@@ -4,16 +4,19 @@ from pathlib import Path
 from string import Template
 
 # Define the template for the module interface file
-file_template = Template("""module;$required_include
+file_template = Template("""module;
+
+#define GLM_FORCE_INLINE
+#define GLM_ENABLE_EXPERIMENTAL
+#define GLM_FORCE_ALIGNED_GENTYPES
 
 export module $module_name;
 
-#include <glm/$relative_path>""")
+export import <glm/$relative_path>;""")
 
 glm_template = Template("""export module GLM;
 
-$generatedFiles
-""")
+$generatedFiles""")
 
 generatedFiles = []
 

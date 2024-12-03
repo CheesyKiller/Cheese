@@ -121,21 +121,29 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_GUARDOVERFLOW_CRT_ALLOCATORS=1;_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdclatest</LanguageStandard_C>
-      <AdditionalIncludeDirectories>C:\VulkanSDK\Dev\Include;$(ProjectDir)GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\VulkanSDK\Dev\Include;$(ProjectDir)GLM;$(ProjectDir)PythonForObjects\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/Dev/Include"</AdditionalOptions>
+      <EnableModules>true</EnableModules>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>python3.lib;python311.lib;OpenGL32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>python311.lib;OpenGL32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Users\AbtsJ\source\repos\Cheese\PythonForObjects\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
-      <Command>python $(ProjectDir)Shaders\compile_shaders.py</Command>
+      <Command>python $(ProjectDir)Shaders\compile_shaders.py
+if exist "$(OutDir)Models" rmdir /S /Q "$(OutDir)Models"
+if exist "$(OutDir)Textures" rmdir /S /Q "$(OutDir)Textures"
+xcopy "$(ProjectDir)Models" "$(OutDir)Models" /E /I /Y
+xcopy "$(ProjectDir)Textures" "$(OutDir)Textures" /E /I /Y
+xcopy "$(ProjectDir)PythonForObjects" "$(OutDir)PythonForObjects" /E /I /Y /D</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -144,60 +152,86 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_GUARDOVERFLOW_CRT_ALLOCATORS=1;_CRT_SECURE_NO_WARNINGS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdclatest</LanguageStandard_C>
-      <AdditionalIncludeDirectories>C:\VulkanSDK\Dev\Include;$(ProjectDir)GLM;$(ProjectDir)PythonForObjects\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\VulkanSDK\Dev\Include;$(ProjectDir)GLM;$(ProjectDir)PythonForObjects\include;$(ProjectDir)PythonForObjects\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/Dev/Include"</AdditionalOptions>
+      <EnableModules>true</EnableModules>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>python3.lib;python311.lib;OpenGL32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>python311.lib;OpenGL32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
       <AdditionalLibraryDirectories>C:\Users\AbtsJ\source\repos\Cheese\PythonForObjects\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
-      <Command>python $(ProjectDir)Shaders\compile_shaders.py</Command>
+      <Command>python $(ProjectDir)Shaders\compile_shaders.py
+if exist "$(OutDir)Models" rmdir /S /Q "$(OutDir)Models"
+if exist "$(OutDir)Textures" rmdir /S /Q "$(OutDir)Textures"
+xcopy "$(ProjectDir)Models" "$(OutDir)Models" /E /I /Y
+xcopy "$(ProjectDir)Textures" "$(OutDir)Textures" /E /I /Y
+xcopy "$(ProjectDir)PythonForObjects" "$(OutDir)PythonForObjects" /E /I /Y /D</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='SimpleDebug|x64'">
     <ClCompile>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_SIMPLE_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_GUARDOVERFLOW_CRT_ALLOCATORS=1;_CRT_SECURE_NO_WARNINGS;_SIMPLE_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdclatest</LanguageStandard_C>
-      <AdditionalIncludeDirectories>C:\VulkanSDK\Dev\Include;$(ProjectDir)GLM;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\VulkanSDK\Dev\Include;$(ProjectDir)GLM;$(ProjectDir)PythonForObjects\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /external:I "C:/VulkanSDK/Dev/Include"</AdditionalOptions>
+      <EnableModules>true</EnableModules>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>python3.lib;python311.lib;OpenGL32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>python311.lib;OpenGL32.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>C:\Users\AbtsJ\source\repos\Cheese\PythonForObjects\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
-      <Command>python $(ProjectDir)Shaders\compile_shaders.py</Command>
+      <Command>python $(ProjectDir)Shaders\compile_shaders.py
+if exist "$(OutDir)Models" rmdir /S /Q "$(OutDir)Models"
+if exist "$(OutDir)Textures" rmdir /S /Q "$(OutDir)Textures"
+xcopy "$(ProjectDir)Models" "$(OutDir)Models" /E /I /Y
+xcopy "$(ProjectDir)Textures" "$(OutDir)Textures" /E /I /Y
+xcopy "$(ProjectDir)PythonForObjects" "$(OutDir)PythonForObjects" /E /I /Y /D</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GLAD-WGL.ixx" />
+    <ClCompile Include="WindowContextCamera.cpp" />
+    <ClCompile Include="WindowContextCamera.ixx" />
+    <ClCompile Include="DebugVectorOutput.ixx" />
+    <ClCompile Include="StaticSystemPaths.ixx" />
+    <ClCompile Include="RenderObjectBlenderPython.ixx" />
+    <ClCompile Include="RenderObjectBlenderReader.cpp" />
+    <ClCompile Include="RenderObjectBlenderReader.ixx" />
+    <ClCompile Include="RenderObjectData.ixx" />
+    <ClCompile Include="RenderObjectKeyframe.ixx" />
+    <ClCompile Include="RenderObjectMaterial.ixx" />
+    <ClCompile Include="RenderObjectMaterialManager.cpp" />
+    <ClCompile Include="RenderObjectMaterialManager.ixx" />
+    <ClCompile Include="RenderObjectShapeKey.ixx" />
     <ClCompile Include="Cheese.cpp" />
     <ClCompile Include="DebugLogger.ixx" />
     <ClCompile Include="KeyboardInput-Base.ixx" />
     <ClCompile Include="KeyboardInput-WindowsImpl.ixx" />
     <ClCompile Include="KeyboardInput.ixx" />
-    <ClCompile Include="OldObjects\BlenderObject.cpp" />
-    <ClCompile Include="OldObjects\BlenderObjectReader.cpp" />
-    <ClCompile Include="OldObjects\Main.cpp" />
-    <ClCompile Include="OldObjects\MaterialManager.cpp" />
-    <ClCompile Include="OldObjects\ObjectBase.cpp" />
-    <ClCompile Include="OldObjects\ShaderBase.cpp" />
-    <ClCompile Include="OldObjects\ShaderProgram.cpp" />
-    <ClCompile Include="OldObjects\ThreadedObjectLoader.cpp" />
     <ClCompile Include="RenderObject.cpp" />
     <ClCompile Include="RenderObject.ixx" />
+    <ClCompile Include="RenderObjectTexture.cpp" />
+    <ClCompile Include="RenderObjectTexture.ixx" />
+    <ClCompile Include="RenderObjectThreadedLoader.cpp" />
+    <ClCompile Include="RenderObjectThreadedLoader.ixx" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Shader.ixx" />
     <ClCompile Include="Shaders\ShaderSources.ixx" />
@@ -461,21 +495,13 @@
     <ClCompile Include="KHR\KHR.ixx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="cpp.hint" />
     <None Include="Shaders\FragmentShader.glsl" />
     <None Include="Shaders\VertexShader.glsl" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="OldObjects\BlenderObject.h" />
-    <ClInclude Include="OldObjects\BlenderObjectReader.h" />
-    <ClInclude Include="OldObjects\Camera.h" />
-    <ClInclude Include="OldObjects\MaterialManager.h" />
-    <ClInclude Include="OldObjects\ObjectBase.h" />
-    <ClInclude Include="OldObjects\ReadBlenderFile.h" />
-    <ClInclude Include="OldObjects\ShaderBase.h" />
-    <ClInclude Include="OldObjects\ShaderProgram.h" />
-    <ClInclude Include="OldObjects\ThreadedObjectLoader.h" />
-    <ClInclude Include="OldObjects\VectorOutput.h" />
     <ClInclude Include="Shaders\stb_image.h" />
+    <ClInclude Include="stb_image.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

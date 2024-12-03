@@ -1,63 +1,41 @@
-module;
-
-#include <vector>
-#include <memory>
-
 export module Shader;
 
-export import ShaderSources;
-export import GLAD;
 export import RenderObject;
+export import RenderObjectTexture;
+export import WindowContext;
+
+import std.core;
 
 export struct Shader {
-	unsigned int ID;
-	std::vector<std::shared_ptr<RenderObject>> renderObjects;
+    unsigned int ID;
+    std::vector<std::shared_ptr<RenderObject::RenderObject>> renderObjects;
+    std::vector<std::shared_ptr<RenderObject::Texture>> textures;
 
-	Shader();
-	Shader(const char* vertexSource, const char* fragmentSource, bool globalOverride = false);
-	~Shader();
+    Shader();
+    Shader(const char* vertexSource, const char* fragmentSource, bool globalOverride = false);
+    ~Shader();
 
-	void Compile(const char* vertexSource, const char* fragmentSource);
-	void Use();
+    void Compile(const char* vertexSource, const char* fragmentSource);
+    void Use();
 
-	void drawObjects() {
-		this->Use();
-		for (auto& obj : renderObjects) {
-			obj->Draw();
-		}
-	}
-
-	std::shared_ptr<RenderObject> createObject(std::shared_ptr<RenderObject> renderObject = std::make_shared<RenderObject>()) {
-		this->Use();
-		renderObjects.push_back(renderObject);
-		return renderObjects.back();
-	}
+    void drawObjects(const std::string& camera, const float& currentTime);
+    std::shared_ptr<RenderObject::RenderObject> createObject(RenderObject::Data renderObjectData);
+    std::shared_ptr<RenderObject::Texture> createTexture(const std::string& imagePath);
 };
 
 export struct GlobalShader {
-	static GlobalShader* getInstance() {
-		static GlobalShader instance;
-		return &instance;
-	}
+    static GlobalShader* getInstance();
 
-	GlobalShader(const GlobalShader&) = delete;
-	GlobalShader& operator=(const GlobalShader&) = delete;
+    void trySetShader(Shader* shader);
 
-	void trySetShader(Shader* shader) {
-		if (shader->ID != 0) {
-			this->shader = shader;
-		}
-	}
+    void setShader(Shader* shader);
 
-	void setShader(Shader* shader) {
-		this->shader = shader;
-	}
+    void drawShaderObjects(const std::string& windowName, const float& deltaTime);
 
-	void drawShaderObjects() {
-		shader->drawObjects();
-	}
-	
-	Shader* shader;
+    Shader* shader = nullptr;  // Explicitly initialized
+
+    GlobalShader(const GlobalShader&) = delete;
+    GlobalShader& operator=(const GlobalShader&) = delete;
 private:
-	GlobalShader() = default;
+    GlobalShader() = default;
 };

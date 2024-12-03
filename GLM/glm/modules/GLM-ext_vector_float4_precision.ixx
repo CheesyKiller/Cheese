@@ -1,5 +1,9 @@
 module;
 
+#define GLM_FORCE_INLINE
+#define GLM_ENABLE_EXPERIMENTAL
+#define GLM_FORCE_ALIGNED_GENTYPES
+
 export module GLM:ext_vector_float4_precision;
 
-#include <glm/ext/vector_float4_precision.hpp>
+export import <glm/ext/vector_float4_precision.hpp>;

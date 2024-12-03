@@ -1,8 +1,6 @@
-#pragma once
+export module DebugVectorOutput;
 
-#include <vector>
-#include <iostream>
-#include <algorithm>
+import std;
 
 // Overload to print the vector in segments
 template <std::size_t Segments, typename T>

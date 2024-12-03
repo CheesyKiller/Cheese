@@ -1,14 +1,14 @@
-#include <string>
-#include <vector>
-#include <functional>
-#include <memory>
-#include <iostream>
-
 import WindowManager;
+
+import KeyboardInput;
 
 WindowManager* WindowManager::getInstance() {
     static WindowManager instance;
     return &instance;
+}
+
+WindowManager::WindowManager() {
+    Input::InputManager::GetInstance();
 }
 
 WindowManager::~WindowManager() {
@@ -80,10 +80,10 @@ int WindowManager::getRefreshRate(const std::string& windowName) {
 	return 0;
 }
 
-void WindowManager::vSync(const std::string& windowName) {
+void WindowManager::setVSync(const std::string& windowName, const bool& state) {
     for (int i = 0; i < windows.size(); ++i) {
         if (windows[i]->GetTitle() == windowName) {
-            windows[i]->VSync();
+            windows[i]->EnableVSync(state);
             return;
         }
     }
@@ -98,6 +98,11 @@ void WindowManager::run() {
                 window->MakeCurrent();
                 allClosed = false;
                 window->PollEvents();
+				Input::InputManager::GetInstance()->Update();
+                if (window->camera->CheckMouseLock()) {
+					window->ToggleCursorCapture();
+                }
+                window->camera->processInput(window->GetMouseDeltas(), GLAD::gladGetDeltaTime());
                 perFrameCodes[i]();
                 window->SwapBuffers();
             }
@@ -112,4 +117,13 @@ void WindowManager::close() {
     }
     windows.clear(); // Release resources
     perFrameCodes.clear();
+}
+
+std::shared_ptr<WindowContext::Camera> WindowManager::getWindowCamera(const std::string& windowName) {
+    for (int i = 0; i < windows.size(); ++i) {
+        if (windows[i]->GetTitle() == windowName) {
+            return windows[i]->camera;
+        }
+    }
+    return nullptr;
 }

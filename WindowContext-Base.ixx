@@ -1,15 +1,13 @@
-module;
-
-#include <functional>
-#include <string>
-
 export module WindowContext:Base;
 
-namespace WindowContext {
+import std.core;
+
+export namespace WindowContext {
+    struct Camera;
+    struct Impl;
 
     // Window interface class
-    export class Window {
-    public:
+    struct Window {
         Window(std::string title, int width = 800, int height = 600, Window* sharedWindow = nullptr);
         ~Window();
 
@@ -18,7 +16,6 @@ namespace WindowContext {
         void Close();
         bool ShouldClose();
 
-        // Future-proofing: Methods to set window properties, handle input, etc.
         void SetTitle(std::string title);
         std::string GetTitle() const;
 
@@ -30,19 +27,26 @@ namespace WindowContext {
         void Hide();
 
         int GetMonitorRefreshRate();
-		void VSync();
+        void EnableVSync(bool enable);
 
         void SetFramebufferSizeCallback(std::function<void(int, int)> callback);
+        void ResizeViewport(int width, int height);
+
+        void EnableCursorCapture(bool enable);
+        void ToggleCursorCapture();
+        void SetCursorVisible(bool visible);
+        std::pair<int, int> GetMouseDeltas();
 
         Window(const Window&) = delete;
         Window& operator=(const Window&) = delete;
 
         unsigned int targetFPS;
-    private:
-		bool shouldClose = false;
 
-        struct Impl;
+        std::shared_ptr<Camera> camera;
+
+    private:
+        bool shouldClose = false;
+
         Impl* impl;
     };
-
 }

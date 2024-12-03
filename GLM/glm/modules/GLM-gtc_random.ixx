@@ -1,5 +1,9 @@
 module;
 
+#define GLM_FORCE_INLINE
+#define GLM_ENABLE_EXPERIMENTAL
+#define GLM_FORCE_ALIGNED_GENTYPES
+
 export module GLM:gtc_random;
 
-#include <glm/gtc/random.hpp>
+export import <glm/gtc/random.hpp>;

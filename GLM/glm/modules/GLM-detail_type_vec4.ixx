@@ -1,5 +1,9 @@
 module;
 
+#define GLM_FORCE_INLINE
+#define GLM_ENABLE_EXPERIMENTAL
+#define GLM_FORCE_ALIGNED_GENTYPES
+
 export module GLM:detail_type_vec4;
 
-#include <glm/detail/type_vec4.hpp>
+export import <glm/detail/type_vec4.hpp>;

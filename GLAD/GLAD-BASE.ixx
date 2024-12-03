@@ -1,4 +1,5 @@
-#include <stdexcept>
+module;
+
 #include <Windows.h>
 
 export module GLAD:BASE;

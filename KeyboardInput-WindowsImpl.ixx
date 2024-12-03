@@ -6,6 +6,9 @@ export module KeyboardInput:WindowsImpl;
 
 export import :Base;
 
+export import WindowManager;
+export import GLM;
+
 export namespace Input {
 	using KEY_CODE = int;
 
@@ -128,7 +131,127 @@ export namespace Input {
 	constexpr KEY_CODE KEY_NUMPAD_ENTER = VK_RETURN;
 	constexpr KEY_CODE KEY_NUMPAD_LOCK = VK_NUMLOCK;
 
-	bool IsPressed(KEY_CODE key_code) {
-		return GetAsyncKeyState(key_code) & 0x8000;
-	};
+	InputManager::InputManager() {
+		MonitorKey(KEY_UP);
+		MonitorKey(KEY_DOWN);
+		MonitorKey(KEY_LEFT);
+		MonitorKey(KEY_RIGHT);
+		MonitorKey(KEY_ESCPAE);
+		MonitorKey(KEY_SPACE);
+		MonitorKey(KEY_ENTER);
+		MonitorKey(KEY_BACK);
+		MonitorKey(KEY_TAB);
+		MonitorKey(KEY_SHIFT);
+		MonitorKey(KEY_TILDE);
+		MonitorKey(KEY_EQUAL);
+		MonitorKey(KEY_MINUS);
+		MonitorKey(KEY_UNDERSCORE);
+		MonitorKey(KEY_PLUS);
+		MonitorKey(KEY_LBRACKET);
+		MonitorKey(KEY_RBRACKET);
+		MonitorKey(KEY_SEMICOLON);
+		MonitorKey(KEY_QUOTE);
+		MonitorKey(KEY_COMMA);
+		MonitorKey(KEY_PERIOD);
+		MonitorKey(KEY_SLASH);
+		MonitorKey(KEY_BACKSLASH);
+		MonitorKey(KEY_GRAVE);
+		MonitorKey(KEY_CTRL_L);
+		MonitorKey(KEY_CTRL_R);
+		MonitorKey(KEY_ALT_L);
+		MonitorKey(KEY_ALT_R);
+		MonitorKey(KEY_SHIFT_L);
+		MonitorKey(KEY_SHIFT_R);
+		MonitorKey(KEY_WIN_L);
+		MonitorKey(KEY_WIN_R);
+		MonitorKey(KEY_ESCAPE);
+		MonitorKey(KEY_CTRL);
+		MonitorKey(KEY_ALT);
+		MonitorKey(KEY_CAPS_LOCK);
+		MonitorKey(KEY_NUM_LOCK);
+		MonitorKey(KEY_SCROLL_LOCK);
+		MonitorKey(KEY_INSERT);
+		MonitorKey(KEY_DELETE);
+		MonitorKey(KEY_HOME);
+		MonitorKey(KEY_END);
+		MonitorKey(KEY_PAGE_UP);
+		MonitorKey(KEY_PAGE_DOWN);
+		MonitorKey(KEY_PRINT_SCREEN);
+		MonitorKey(KEY_PAUSE);
+		MonitorKey(KEY_MENU);
+		MonitorKey(KEY_F1);
+		MonitorKey(KEY_F2);
+		MonitorKey(KEY_F3);
+		MonitorKey(KEY_F4);
+		MonitorKey(KEY_F5);
+		MonitorKey(KEY_F6);
+		MonitorKey(KEY_F7);
+		MonitorKey(KEY_F8);
+		MonitorKey(KEY_F9);
+		MonitorKey(KEY_F10);
+		MonitorKey(KEY_F11);
+		MonitorKey(KEY_F12);
+		MonitorKey(KEY_0);
+		MonitorKey(KEY_1);
+		MonitorKey(KEY_2);
+		MonitorKey(KEY_3);
+		MonitorKey(KEY_4);
+		MonitorKey(KEY_5);
+		MonitorKey(KEY_6);
+		MonitorKey(KEY_7);
+		MonitorKey(KEY_8);
+		MonitorKey(KEY_9);
+		MonitorKey(KEY_A);
+		MonitorKey(KEY_B);
+		MonitorKey(KEY_C);
+		MonitorKey(KEY_D);
+		MonitorKey(KEY_E);
+		MonitorKey(KEY_F);
+		MonitorKey(KEY_G);
+		MonitorKey(KEY_H);
+		MonitorKey(KEY_I);
+		MonitorKey(KEY_J);
+		MonitorKey(KEY_K);
+		MonitorKey(KEY_L);
+		MonitorKey(KEY_M);
+		MonitorKey(KEY_N);
+		MonitorKey(KEY_O);
+		MonitorKey(KEY_P);
+		MonitorKey(KEY_Q);
+		MonitorKey(KEY_R);
+		MonitorKey(KEY_S);
+		MonitorKey(KEY_T);
+		MonitorKey(KEY_U);
+		MonitorKey(KEY_V);
+		MonitorKey(KEY_W);
+		MonitorKey(KEY_X);
+		MonitorKey(KEY_Y);
+		MonitorKey(KEY_Z);
+		MonitorKey(KEY_NUMPAD_0);
+		MonitorKey(KEY_NUMPAD_1);
+		MonitorKey(KEY_NUMPAD_2);
+		MonitorKey(KEY_NUMPAD_3);
+		MonitorKey(KEY_NUMPAD_4);
+		MonitorKey(KEY_NUMPAD_5);
+		MonitorKey(KEY_NUMPAD_6);
+		MonitorKey(KEY_NUMPAD_7);
+		MonitorKey(KEY_NUMPAD_8);
+		MonitorKey(KEY_NUMPAD_9);
+		MonitorKey(KEY_NUMPAD_ADD);
+		MonitorKey(KEY_NUMPAD_SUBTRACT);
+		MonitorKey(KEY_NUMPAD_MULTIPLY);
+		MonitorKey(KEY_NUMPAD_DIVIDE);
+		MonitorKey(KEY_NUMPAD_DECIMAL);
+		MonitorKey(KEY_NUMPAD_ENTER);
+		MonitorKey(KEY_NUMPAD_LOCK);
+	}
+
+	void InputManager::Update() {
+		for (auto& key : monitoredKeys) {
+			bool newState = GetAsyncKeyState(key) & 0x8000;
+			keysJustPressed[key] = newState && !keysCurrentState[key];
+			keysJustReleased[key] = !newState && keysCurrentState[key];
+			keysCurrentState[key] = newState;
+		}
+	}
 }

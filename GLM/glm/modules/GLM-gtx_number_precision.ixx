@@ -1,5 +1,9 @@
 module;
 
+#define GLM_FORCE_INLINE
+#define GLM_ENABLE_EXPERIMENTAL
+#define GLM_FORCE_ALIGNED_GENTYPES
+
 export module GLM:gtx_number_precision;
 
-#include <glm/gtx/number_precision.hpp>
+export import <glm/gtx/number_precision.hpp>;

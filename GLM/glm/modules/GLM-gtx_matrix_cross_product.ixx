@@ -1,5 +1,9 @@
 module;
 
+#define GLM_FORCE_INLINE
+#define GLM_ENABLE_EXPERIMENTAL
+#define GLM_FORCE_ALIGNED_GENTYPES
+
 export module GLM:gtx_matrix_cross_product;
 
-#include <glm/gtx/matrix_cross_product.hpp>
+export import <glm/gtx/matrix_cross_product.hpp>;

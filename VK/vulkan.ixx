@@ -11,6 +11,9 @@
 
 module;
 
+#ifdef _CRT_SECURE_NO_WARNINGS
+#undef _CRT_SECURE_NO_WARNINGS
+#endif
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <vulkan/vulkan_hpp_macros.hpp>

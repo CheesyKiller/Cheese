@@ -1,6 +1,9 @@
 import Shader;
 
-#include <iostream>
+import StaticSystemPaths;
+import WindowManager;
+
+import std;
 
 Shader::Shader() {
 	ID = 0;
@@ -62,4 +65,63 @@ Shader::~Shader() {
 
 void Shader::Use() {
 	GLAD::glUseProgram(ID);
+}
+
+void Shader::drawObjects(const std::string& windowName, const float& currentTime) {
+	WindowManager* manager = WindowManager::getInstance();
+	std::shared_ptr<WindowContext::Camera> camera = manager->getWindowCamera(windowName);
+
+	this->Use();
+
+	glm::mat4 view = camera->getViewMatrix();
+	glm::mat4 projection = camera->getProjectionMatrix(800.0f / 600.0f);
+	int viewLoc = GLAD::glGetUniformLocation(ID, "view");
+	int projLoc = GLAD::glGetUniformLocation(ID, "projection");
+	GLAD::glUniformMatrix4fv(viewLoc, 1, GLAD::GL_FALSE, glm::value_ptr(view));
+	GLAD::glUniformMatrix4fv(projLoc, 1, GLAD::GL_FALSE, glm::value_ptr(projection));
+
+	for (int i = 0; i < textures.size(); i++) {
+		textures[i]->bind();
+	}
+
+	for (int i = 0; i < renderObjects.size(); i++) {
+		renderObjects[i]->draw(ID, currentTime);
+	}
+
+	for (int i = 0; i < textures.size(); i++) {
+		textures[i]->unbind();
+	}
+}
+
+std::shared_ptr<RenderObject::RenderObject> Shader::createObject(RenderObject::Data renderObjectData) {
+	this->Use();
+	renderObjects.push_back(std::make_shared<RenderObject::RenderObject>(renderObjectData));
+	return renderObjects.back();
+}
+
+std::shared_ptr<RenderObject::Texture> Shader::createTexture(const std::string& imagePath) {
+	this->Use();
+	textures.push_back(std::make_shared<RenderObject::Texture>(StaticSystemPaths::ExecutionFolder + "\\Textures\\" + imagePath));
+	return textures.back();
+}
+
+GlobalShader* GlobalShader::getInstance() {
+	static GlobalShader instance;
+	return &instance;
+}
+
+void GlobalShader::trySetShader(Shader* shader) {
+	if (shader && shader->ID != 0) {  // Added null check for safety
+		this->shader = shader;
+	}
+}
+
+void GlobalShader::setShader(Shader* shader) {
+	this->shader = shader;
+}
+
+void GlobalShader::drawShaderObjects(const std::string& windowName, const float& deltaTime) {
+	if (shader) {  // Safety check for null pointer
+		shader->drawObjects(windowName, deltaTime);
+	}
 }

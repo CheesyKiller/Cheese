@@ -1,9 +1,8 @@
+import GLAD;
 import WindowManager;
-import ShaderSources;
-import RenderObject;
-import RenderObjectBlenderReader;
 import Shader;
 import ShaderSources;
+import RenderObjectBlenderReader;
 import KeyboardInput;
 
 #ifndef _DEBUG

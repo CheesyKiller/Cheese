@@ -1,6 +1,7 @@
 export module RenderObjectShapeKey;
 
-export import RenderObjectKeyframe;
+import std;
+import RenderObjectKeyframe;
 
 export namespace RenderObject {
 	struct ShapeKey {

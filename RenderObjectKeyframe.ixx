@@ -1,6 +1,6 @@
 export module RenderObjectKeyframe;
 
-export import GLM;
+import GLM;
 
 export namespace RenderObject {
 	struct Keyframe {

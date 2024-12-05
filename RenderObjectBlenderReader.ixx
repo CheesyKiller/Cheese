@@ -1,8 +1,7 @@
 export module RenderObjectBlenderReader;
 
-export import RenderObjectData;
-
 import std.core;
+import RenderObjectData;
 
 export namespace RenderObject {
     struct BlenderReader {

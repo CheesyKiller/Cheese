@@ -1,10 +1,10 @@
 export module Shader;
 
-export import RenderObject;
-export import RenderObjectTexture;
-export import WindowContext;
-
 import std.core;
+import RenderObjectData;
+import RenderObjectTexture;
+import RenderObject;
+import WindowContext;
 
 export struct Shader {
     unsigned int ID;

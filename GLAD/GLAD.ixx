@@ -4,7 +4,16 @@ module;
 
 export module GLAD;
 
-export import :V4_6;
+export import GLADTypes;
+export import GLADMacros;
+export import GLADBase;
+
+export import GLAD1;
+export import GLAD2;
+export import GLAD3;
+export import GLAD4;
+
+import std;
 
 export namespace GLAD {
 	struct Time {
@@ -53,4 +62,4 @@ export namespace GLAD {
 	}
 }
 
-export import :WGL;
+export import GLADWGL;

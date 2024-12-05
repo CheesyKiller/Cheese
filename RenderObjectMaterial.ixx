@@ -1,6 +1,7 @@
 export module RenderObjectMaterial;
 
-export import GLM;
+import GLM;
+import RenderObjectNodeTree;
 
 export namespace RenderObject {
     struct Material {
@@ -18,6 +19,8 @@ export namespace RenderObject {
         float transmission;
         float clearcoat;
         float clearcoatRoughness;
+
+		NodeTree nodeTree;
 
         Material(const std::string& materialName);
     };

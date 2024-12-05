@@ -1,0 +1,50 @@
+export module GLAD4:A3;
+
+import GLADTypes;
+
+export namespace GLAD {
+	using PFNGLCLEARBUFFERDATAPROC = void(*)(GLenum target, GLenum internalformat, GLenum format, GLenum type, const void* data);
+	using PFNGLCLEARBUFFERSUBDATAPROC = void(*)(GLenum target, GLenum internalformat, GLintptr offset, GLsizeiptr size, GLenum format, GLenum type, const void* data);
+	using PFNGLDISPATCHCOMPUTEPROC = void(*)(GLuint num_groups_x, GLuint num_groups_y, GLuint num_groups_z);
+	using PFNGLDISPATCHCOMPUTEINDIRECTPROC = void(*)(GLintptr indirect);
+	using PFNGLCOPYIMAGESUBDATAPROC = void(*)(GLuint srcName, GLenum srcTarget, GLint srcLevel, GLint srcX, GLint srcY, GLint srcZ, GLuint dstName, GLenum dstTarget, GLint dstLevel, GLint dstX, GLint dstY, GLint dstZ, GLsizei srcWidth, GLsizei srcHeight, GLsizei srcDepth);
+	using PFNGLFRAMEBUFFERPARAMETERIPROC = void(*)(GLenum target, GLenum pname, GLint param);
+	using PFNGLGETFRAMEBUFFERPARAMETERIVPROC = void(*)(GLenum target, GLenum pname, GLint* params);
+	using PFNGLGETINTERNALFORMATI64VPROC = void(*)(GLenum target, GLenum internalformat, GLenum pname, GLsizei count, GLint64* params);
+	using PFNGLINVALIDATETEXSUBIMAGEPROC = void(*)(GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth);
+	using PFNGLINVALIDATETEXIMAGEPROC = void(*)(GLuint texture, GLint level);
+	using PFNGLINVALIDATEBUFFERSUBDATAPROC = void(*)(GLuint buffer, GLintptr offset, GLsizeiptr length);
+	using PFNGLINVALIDATEBUFFERDATAPROC = void(*)(GLuint buffer);
+	using PFNGLINVALIDATEFRAMEBUFFERPROC = void(*)(GLenum target, GLsizei numAttachments, const GLenum* attachments);
+	using PFNGLINVALIDATESUBFRAMEBUFFERPROC = void(*)(GLenum target, GLsizei numAttachments, const GLenum* attachments, GLint x, GLint y, GLsizei width, GLsizei height);
+	using PFNGLMULTIDRAWARRAYSINDIRECTPROC = void(*)(GLenum mode, const void* indirect, GLsizei drawcount, GLsizei stride);
+	using PFNGLMULTIDRAWELEMENTSINDIRECTPROC = void(*)(GLenum mode, GLenum type, const void* indirect, GLsizei drawcount, GLsizei stride);
+	using PFNGLGETPROGRAMINTERFACEIVPROC = void(*)(GLuint program, GLenum programInterface, GLenum pname, GLint* params);
+	using PFNGLGETPROGRAMRESOURCEINDEXPROC = GLuint(*)(GLuint program, GLenum programInterface, const GLchar* name);
+	using PFNGLGETPROGRAMRESOURCENAMEPROC = void(*)(GLuint program, GLenum programInterface, GLuint index, GLsizei bufSize, GLsizei* length, GLchar* name);
+	using PFNGLGETPROGRAMRESOURCEIVPROC = void(*)(GLuint program, GLenum programInterface, GLuint index, GLsizei propCount, const GLenum* props, GLsizei count, GLsizei* length, GLint* params);
+	using PFNGLGETPROGRAMRESOURCELOCATIONPROC = GLint(*)(GLuint program, GLenum programInterface, const GLchar* name);
+	using PFNGLGETPROGRAMRESOURCELOCATIONINDEXPROC = GLint(*)(GLuint program, GLenum programInterface, const GLchar* name);
+	using PFNGLSHADERSTORAGEBLOCKBINDINGPROC = void(*)(GLuint program, GLuint storageBlockIndex, GLuint storageBlockBinding);
+	using PFNGLTEXBUFFERRANGEPROC = void(*)(GLenum target, GLenum internalformat, GLuint buffer, GLintptr offset, GLsizeiptr size);
+	using PFNGLTEXSTORAGE2DMULTISAMPLEPROC = void(*)(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height, GLboolean fixedsamplelocations);
+	using PFNGLTEXSTORAGE3DMULTISAMPLEPROC = void(*)(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth, GLboolean fixedsamplelocations);
+	using PFNGLTEXTUREVIEWPROC = void(*)(GLuint texture, GLenum target, GLuint origtexture, GLenum internalformat, GLuint minlevel, GLuint numlevels, GLuint minlayer, GLuint numlayers);
+	using PFNGLBINDVERTEXBUFFERPROC = void(*)(GLuint bindingindex, GLuint buffer, GLintptr offset, GLsizei stride);
+	using PFNGLVERTEXATTRIBFORMATPROC = void(*)(GLuint attribindex, GLint size, GLenum type, GLboolean normalized, GLuint relativeoffset);
+	using PFNGLVERTEXATTRIBIFORMATPROC = void(*)(GLuint attribindex, GLint size, GLenum type, GLuint relativeoffset);
+	using PFNGLVERTEXATTRIBLFORMATPROC = void(*)(GLuint attribindex, GLint size, GLenum type, GLuint relativeoffset);
+	using PFNGLVERTEXATTRIBBINDINGPROC = void(*)(GLuint attribindex, GLuint bindingindex);
+	using PFNGLVERTEXBINDINGDIVISORPROC = void(*)(GLuint bindingindex, GLuint divisor);
+	using PFNGLDEBUGMESSAGECONTROLPROC = void(*)(GLenum source, GLenum type, GLenum severity, GLsizei count, const GLuint* ids, GLboolean enabled);
+	using PFNGLDEBUGMESSAGEINSERTPROC = void(*)(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* buf);
+	using PFNGLDEBUGMESSAGECALLBACKPROC = void(*)(GLDEBUGPROC callback, const void* userParam);
+	using PFNGLGETDEBUGMESSAGELOGPROC = GLuint(*)(GLuint count, GLsizei bufSize, GLenum* sources, GLenum* types, GLuint* ids, GLenum* severities, GLsizei* lengths, GLchar* messageLog);
+	using PFNGLPUSHDEBUGGROUPPROC = void(*)(GLenum source, GLuint id, GLsizei length, const GLchar* message);
+	using PFNGLPOPDEBUGGROUPPROC = void(*)(void);
+	using PFNGLOBJECTLABELPROC = void(*)(GLenum identifier, GLuint name, GLsizei length, const GLchar* label);
+	using PFNGLGETOBJECTLABELPROC = void(*)(GLenum identifier, GLuint name, GLsizei bufSize, GLsizei* length, GLchar* label);
+	using PFNGLOBJECTPTRLABELPROC = void(*)(const void* ptr, GLsizei length, const GLchar* label);
+	using PFNGLGETOBJECTPTRLABELPROC = void(*)(const void* ptr, GLsizei bufSize, GLsizei* length, GLchar* label);
+	using PFNGLGETPOINTERVPROC = void(*)(GLenum pname, void** params);
+}

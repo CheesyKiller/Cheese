@@ -1,9 +1,11 @@
 import Shader;
 
-import StaticSystemPaths;
-import WindowManager;
-
+import GLM;
 import std;
+import GLAD;
+import StaticSystemPaths;
+import WindowContextCamera;
+import WindowManager;
 
 Shader::Shader() {
 	ID = 0;

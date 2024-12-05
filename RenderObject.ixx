@@ -1,9 +1,8 @@
 export module RenderObject;
 
-export import RenderObjectData;
-export import GLM;
-
+import GLM;
 import std.core;
+import RenderObjectData;
 
 export namespace RenderObject {
     export class RenderObject {

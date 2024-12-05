@@ -1,6 +1,6 @@
 export module RenderObjectTexture;
 
-export import GLAD;
+import GLAD;
 import std.core;
 
 export namespace RenderObject {

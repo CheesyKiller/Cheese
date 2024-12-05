@@ -1,6 +1,10 @@
 import WindowManager;
 
+import GLAD;
+import WindowContextCamera;
+import WindowContext;
 import KeyboardInput;
+import DebugLogger;
 
 WindowManager* WindowManager::getInstance() {
     static WindowManager instance;

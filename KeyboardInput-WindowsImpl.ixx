@@ -4,10 +4,10 @@ module;
 
 export module KeyboardInput:WindowsImpl;
 
-export import :Base;
+import GLM;
+import :Base;
+import WindowManager;
 
-export import WindowManager;
-export import GLM;
 
 export namespace Input {
 	using KEY_CODE = int;

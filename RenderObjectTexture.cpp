@@ -1,5 +1,6 @@
 import RenderObjectTexture;
 
+import GLAD;
 import std;
 
 #define STB_IMAGE_IMPLEMENTATION

@@ -1,6 +1,7 @@
 export module WindowManager;
 
-export import WindowContext;
+import std.core;
+import WindowContext;
 
 export struct WindowManager {
     std::vector<std::shared_ptr<WindowContext::Window>> windows;

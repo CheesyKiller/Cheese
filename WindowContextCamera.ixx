@@ -1,6 +1,6 @@
 export module WindowContextCamera;
 
-export import GLM;
+import GLM;
 
 export namespace WindowContext {
     struct Camera {

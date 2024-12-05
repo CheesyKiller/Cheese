@@ -1,0 +1,65 @@
+export module GLAD3:A3;
+
+import GLADTypes;
+
+export namespace GLAD {
+	// Alias for function pointer types
+	using PFNGLBINDFRAGDATALOCATIONINDEXEDPROC = void(*)(GLuint program, GLuint colorNumber, GLuint index, const GLchar* name);
+	using PFNGLGETFRAGDATAINDEXPROC = GLint(*)(GLuint program, const GLchar* name);
+	using PFNGLGENSAMPLERSPROC = void(*)(GLsizei count, GLuint* samplers);
+	using PFNGLDELETESAMPLERSPROC = void(*)(GLsizei count, const GLuint* samplers);
+	using PFNGLISSAMPLERPROC = GLboolean(*)(GLuint sampler);
+	using PFNGLBINDSAMPLERPROC = void(*)(GLuint unit, GLuint sampler);
+	using PFNGLSAMPLERPARAMETERIPROC = void(*)(GLuint sampler, GLenum pname, GLint param);
+	using PFNGLSAMPLERPARAMETERIVPROC = void(*)(GLuint sampler, GLenum pname, const GLint* param);
+	using PFNGLSAMPLERPARAMETERFPROC = void(*)(GLuint sampler, GLenum pname, GLfloat param);
+	using PFNGLSAMPLERPARAMETERFVPROC = void(*)(GLuint sampler, GLenum pname, const GLfloat* param);
+	using PFNGLSAMPLERPARAMETERIIVPROC = void(*)(GLuint sampler, GLenum pname, const GLint* param);
+	using PFNGLSAMPLERPARAMETERIUIVPROC = void(*)(GLuint sampler, GLenum pname, const GLuint* param);
+	using PFNGLGETSAMPLERPARAMETERIVPROC = void(*)(GLuint sampler, GLenum pname, GLint* params);
+	using PFNGLGETSAMPLERPARAMETERIIVPROC = void(*)(GLuint sampler, GLenum pname, GLint* params);
+	using PFNGLGETSAMPLERPARAMETERFVPROC = void(*)(GLuint sampler, GLenum pname, GLfloat* params);
+	using PFNGLGETSAMPLERPARAMETERIUIVPROC = void(*)(GLuint sampler, GLenum pname, GLuint* params);
+	using PFNGLQUERYCOUNTERPROC = void(*)(GLuint id, GLenum target);
+	using PFNGLGETQUERYOBJECTI64VPROC = void(*)(GLuint id, GLenum pname, GLint64* params);
+	using PFNGLGETQUERYOBJECTUI64VPROC = void(*)(GLuint id, GLenum pname, GLuint64* params);
+	using PFNGLVERTEXATTRIBDIVISORPROC = void(*)(GLuint index, GLuint divisor);
+	using PFNGLVERTEXATTRIBP1UIPROC = void(*)(GLuint index, GLenum type, GLboolean normalized, GLuint value);
+	using PFNGLVERTEXATTRIBP1UIVPROC = void(*)(GLuint index, GLenum type, GLboolean normalized, const GLuint* value);
+	using PFNGLVERTEXATTRIBP2UIPROC = void(*)(GLuint index, GLenum type, GLboolean normalized, GLuint value);
+	using PFNGLVERTEXATTRIBP2UIVPROC = void(*)(GLuint index, GLenum type, GLboolean normalized, const GLuint* value);
+	using PFNGLVERTEXATTRIBP3UIPROC = void(*)(GLuint index, GLenum type, GLboolean normalized, GLuint value);
+	using PFNGLVERTEXATTRIBP3UIVPROC = void(*)(GLuint index, GLenum type, GLboolean normalized, const GLuint* value);
+	using PFNGLVERTEXATTRIBP4UIPROC = void(*)(GLuint index, GLenum type, GLboolean normalized, GLuint value);
+	using PFNGLVERTEXATTRIBP4UIVPROC = void(*)(GLuint index, GLenum type, GLboolean normalized, const GLuint* value);
+	using PFNGLVERTEXP2UIPROC = void(*)(GLenum type, GLuint value);
+	using PFNGLVERTEXP2UIVPROC = void(*)(GLenum type, const GLuint* value);
+	using PFNGLVERTEXP3UIPROC = void(*)(GLenum type, GLuint value);
+	using PFNGLVERTEXP3UIVPROC = void(*)(GLenum type, const GLuint* value);
+	using PFNGLVERTEXP4UIPROC = void(*)(GLenum type, GLuint value);
+	using PFNGLVERTEXP4UIVPROC = void(*)(GLenum type, const GLuint* value);
+	using PFNGLTEXCOORDP1UIPROC = void(*)(GLenum type, GLuint coords);
+	using PFNGLTEXCOORDP1UIVPROC = void(*)(GLenum type, const GLuint* coords);
+	using PFNGLTEXCOORDP2UIPROC = void(*)(GLenum type, GLuint coords);
+	using PFNGLTEXCOORDP2UIVPROC = void(*)(GLenum type, const GLuint* coords);
+	using PFNGLTEXCOORDP3UIPROC = void(*)(GLenum type, GLuint coords);
+	using PFNGLTEXCOORDP3UIVPROC = void(*)(GLenum type, const GLuint* coords);
+	using PFNGLTEXCOORDP4UIPROC = void(*)(GLenum type, GLuint coords);
+	using PFNGLTEXCOORDP4UIVPROC = void(*)(GLenum type, const GLuint* coords);
+	using PFNGLMULTITEXCOORDP1UIPROC = void(*)(GLenum texture, GLenum type, GLuint coords);
+	using PFNGLMULTITEXCOORDP1UIVPROC = void(*)(GLenum texture, GLenum type, const GLuint* coords);
+	using PFNGLMULTITEXCOORDP2UIPROC = void(*)(GLenum texture, GLenum type, GLuint coords);
+	using PFNGLMULTITEXCOORDP2UIVPROC = void(*)(GLenum texture, GLenum type, const GLuint* coords);
+	using PFNGLMULTITEXCOORDP3UIPROC = void(*)(GLenum texture, GLenum type, GLuint coords);
+	using PFNGLMULTITEXCOORDP3UIVPROC = void(*)(GLenum texture, GLenum type, const GLuint* coords);
+	using PFNGLMULTITEXCOORDP4UIPROC = void(*)(GLenum texture, GLenum type, GLuint coords);
+	using PFNGLMULTITEXCOORDP4UIVPROC = void(*)(GLenum texture, GLenum type, const GLuint* coords);
+	using PFNGLNORMALP3UIPROC = void(*)(GLenum type, GLuint coords);
+	using PFNGLNORMALP3UIVPROC = void(*)(GLenum type, const GLuint* coords);
+	using PFNGLCOLORP3UIPROC = void(*)(GLenum type, GLuint color);
+	using PFNGLCOLORP3UIVPROC = void(*)(GLenum type, const GLuint* color);
+	using PFNGLCOLORP4UIPROC = void(*)(GLenum type, GLuint color);
+	using PFNGLCOLORP4UIVPROC = void(*)(GLenum type, const GLuint* color);
+	using PFNGLSECONDARYCOLORP3UIPROC = void(*)(GLenum type, GLuint color);
+	using PFNGLSECONDARYCOLORP3UIVPROC = void(*)(GLenum type, const GLuint* color);
+}

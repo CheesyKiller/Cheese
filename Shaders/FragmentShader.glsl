@@ -8,11 +8,10 @@ out vec4 FragColor;
 
 // Material properties
 struct Material {
-    vec4 baseColor;    // Includes alpha
+    vec4 baseColor;
     float metallic;
     float roughness;
     vec3 emission;
-    // Add other material properties as needed
 };
 
 uniform Material material;

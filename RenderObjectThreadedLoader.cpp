@@ -1,6 +1,8 @@
 import RenderObjectThreadedLoader;
 
 import WindowManager;
+import RenderObjectMaterial;
+import RenderObjectData;
 import RenderObjectBlenderReader;
 
 namespace RenderObject {

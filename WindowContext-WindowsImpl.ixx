@@ -4,11 +4,13 @@ module;
 #include <chrono>
 
 export module WindowContext:WindowsImpl;
-export import :Base;
-export import GLAD;
-export import WindowContextCamera;
 
+import GLM;
 import std.core;
+import GLAD;
+import :Base;
+import WindowContextCamera;
+import DebugLogger;
 
 export namespace WindowContext {
 

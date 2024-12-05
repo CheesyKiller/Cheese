@@ -139,12 +139,14 @@
     </Link>
     <PreBuildEvent>
       <Command>python $(ProjectDir)Shaders\compile_shaders.py
-if exist "$(OutDir)Models" rmdir /S /Q "$(OutDir)Models"
 if exist "$(OutDir)Textures" rmdir /S /Q "$(OutDir)Textures"
-xcopy "$(ProjectDir)Models" "$(OutDir)Models" /E /I /Y
 xcopy "$(ProjectDir)Textures" "$(OutDir)Textures" /E /I /Y
 xcopy "$(ProjectDir)PythonForObjects" "$(OutDir)PythonForObjects" /E /I /Y /D</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>if exist "$(OutDir)Models" rmdir /S /Q "$(OutDir)Models"
+xcopy "$(ProjectDir)Models" "$(OutDir)Models" /E /I /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -173,12 +175,14 @@ xcopy "$(ProjectDir)PythonForObjects" "$(OutDir)PythonForObjects" /E /I /Y /D</C
     </Link>
     <PreBuildEvent>
       <Command>python $(ProjectDir)Shaders\compile_shaders.py
-if exist "$(OutDir)Models" rmdir /S /Q "$(OutDir)Models"
 if exist "$(OutDir)Textures" rmdir /S /Q "$(OutDir)Textures"
-xcopy "$(ProjectDir)Models" "$(OutDir)Models" /E /I /Y
 xcopy "$(ProjectDir)Textures" "$(OutDir)Textures" /E /I /Y
 xcopy "$(ProjectDir)PythonForObjects" "$(OutDir)PythonForObjects" /E /I /Y /D</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>if exist "$(OutDir)Models" rmdir /S /Q "$(OutDir)Models"
+xcopy "$(ProjectDir)Models" "$(OutDir)Models" /E /I /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='SimpleDebug|x64'">
     <ClCompile>
@@ -199,15 +203,68 @@ xcopy "$(ProjectDir)PythonForObjects" "$(OutDir)PythonForObjects" /E /I /Y /D</C
     </Link>
     <PreBuildEvent>
       <Command>python $(ProjectDir)Shaders\compile_shaders.py
-if exist "$(OutDir)Models" rmdir /S /Q "$(OutDir)Models"
 if exist "$(OutDir)Textures" rmdir /S /Q "$(OutDir)Textures"
-xcopy "$(ProjectDir)Models" "$(OutDir)Models" /E /I /Y
 xcopy "$(ProjectDir)Textures" "$(OutDir)Textures" /E /I /Y
 xcopy "$(ProjectDir)PythonForObjects" "$(OutDir)PythonForObjects" /E /I /Y /D</Command>
     </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>if exist "$(OutDir)Models" rmdir /S /Q "$(OutDir)Models"
+xcopy "$(ProjectDir)Models" "$(OutDir)Models" /E /I /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GLAD-WGL.ixx" />
+    <ClCompile Include="GLADWGL-AWGL.ixx" />
+    <ClCompile Include="GLAD1-V0.cpp" />
+    <ClCompile Include="GLAD1.ixx" />
+    <ClCompile Include="GLAD1-A0.ixx" />
+    <ClCompile Include="GLAD1-V1.cpp" />
+    <ClCompile Include="GLAD1-V2.cpp" />
+    <ClCompile Include="GLAD1-V3.cpp" />
+    <ClCompile Include="GLAD1-V4.cpp" />
+    <ClCompile Include="GLAD1-V5.cpp" />
+    <ClCompile Include="GLAD2-A1.ixx" />
+    <ClCompile Include="GLAD2-V0.cpp" />
+    <ClCompile Include="GLAD2-V1.cpp" />
+    <ClCompile Include="GLAD3-A1.ixx" />
+    <ClCompile Include="GLAD3-A2.ixx" />
+    <ClCompile Include="GLAD3-A3.ixx" />
+    <ClCompile Include="GLAD3-V0.cpp" />
+    <ClCompile Include="GLAD3-V1.cpp" />
+    <ClCompile Include="GLAD3-V2.cpp" />
+    <ClCompile Include="GLAD3-V3.cpp" />
+    <ClCompile Include="GLAD4-A1.ixx" />
+    <ClCompile Include="GLAD4-A2.ixx" />
+    <ClCompile Include="GLAD4-A3.ixx" />
+    <ClCompile Include="GLAD4-A4.ixx" />
+    <ClCompile Include="GLAD4-A5.ixx" />
+    <ClCompile Include="GLAD4-A6.ixx" />
+    <ClCompile Include="GLAD4-V0.cpp" />
+    <ClCompile Include="GLAD4-V1.cpp" />
+    <ClCompile Include="GLAD4-V2.cpp" />
+    <ClCompile Include="GLAD4-V3.cpp" />
+    <ClCompile Include="GLAD4-V4.cpp" />
+    <ClCompile Include="GLAD4-V5.cpp" />
+    <ClCompile Include="GLAD4-V6.cpp" />
+    <ClCompile Include="GLADWGL-WGL.cpp" />
+    <ClCompile Include="GLADWGL-WGL.ixx" />
+    <ClCompile Include="GLAD1-A1.ixx" />
+    <ClCompile Include="GLAD1-A2.ixx" />
+    <ClCompile Include="GLAD1-A3.ixx" />
+    <ClCompile Include="GLAD1-A4.ixx" />
+    <ClCompile Include="GLAD1-A5.ixx" />
+    <ClCompile Include="GLAD2-A0.ixx" />
+    <ClCompile Include="GLAD2.ixx" />
+    <ClCompile Include="GLAD3-A0.ixx" />
+    <ClCompile Include="GLAD3.ixx" />
+    <ClCompile Include="GLAD4-A0.ixx" />
+    <ClCompile Include="GLAD4.ixx" />
+    <ClCompile Include="GLADWGL-Types.ixx" />
+    <ClCompile Include="GLADWGL.ixx" />
+    <ClCompile Include="RenderObjectNodeTree.ixx" />
+    <ClCompile Include="RenderObjectNode.ixx" />
+    <ClCompile Include="RenderObjectNodeInput.ixx" />
+    <ClCompile Include="RenderObjectNodeLink.ixx" />
+    <ClCompile Include="RenderObjectNodeOutput.ixx" />
     <ClCompile Include="WindowContextCamera.cpp" />
     <ClCompile Include="WindowContextCamera.ixx" />
     <ClCompile Include="DebugVectorOutput.ixx" />
@@ -243,28 +300,28 @@ xcopy "$(ProjectDir)PythonForObjects" "$(OutDir)PythonForObjects" /E /I /Y /D</C
     <ClCompile Include="WindowManager.ixx" />
     <ClCompile Include="GLAD\GLAD.cppm" />
     <ClCompile Include="GLAD\GLAD.ixx" />
-    <ClCompile Include="GLAD\GLAD-V1_0.ixx" />
-    <ClCompile Include="GLAD\GLAD-V1_1.ixx" />
-    <ClCompile Include="GLAD\GLAD-V1_2.ixx" />
-    <ClCompile Include="GLAD\GLAD-V1_3.ixx" />
-    <ClCompile Include="GLAD\GLAD-V1_4.ixx" />
-    <ClCompile Include="GLAD\GLAD-V1_5.ixx" />
-    <ClCompile Include="GLAD\GLAD-V2_0.ixx" />
-    <ClCompile Include="GLAD\GLAD-V2_1.ixx" />
-    <ClCompile Include="GLAD\GLAD-V3_0.ixx" />
-    <ClCompile Include="GLAD\GLAD-V3_1.ixx" />
-    <ClCompile Include="GLAD\GLAD-V3_2.ixx" />
-    <ClCompile Include="GLAD\GLAD-V3_3.ixx" />
-    <ClCompile Include="GLAD\GLAD-V4_0.ixx" />
-    <ClCompile Include="GLAD\GLAD-V4_1.ixx" />
-    <ClCompile Include="GLAD\GLAD-V4_2.ixx" />
-    <ClCompile Include="GLAD\GLAD-V4_3.ixx" />
-    <ClCompile Include="GLAD\GLAD-V4_4.ixx" />
-    <ClCompile Include="GLAD\GLAD-V4_5.ixx" />
-    <ClCompile Include="GLAD\GLAD-V4_6.ixx" />
-    <ClCompile Include="GLAD\GLAD-Macros.ixx" />
-    <ClCompile Include="GLAD\GLAD-Types.ixx" />
-    <ClCompile Include="GLAD\GLAD-BASE.ixx" />
+    <ClCompile Include="GLAD\GLAD1-V0.ixx" />
+    <ClCompile Include="GLAD\GLAD1-V1.ixx" />
+    <ClCompile Include="GLAD\GLAD1-V2.ixx" />
+    <ClCompile Include="GLAD\GLAD1-V3.ixx" />
+    <ClCompile Include="GLAD\GLAD1-V4.ixx" />
+    <ClCompile Include="GLAD\GLAD1-V5.ixx" />
+    <ClCompile Include="GLAD\GLAD2-V0.ixx" />
+    <ClCompile Include="GLAD\GLAD2-V1.ixx" />
+    <ClCompile Include="GLAD\GLAD3-V0.ixx" />
+    <ClCompile Include="GLAD\GLAD3-V1.ixx" />
+    <ClCompile Include="GLAD\GLAD3-V2.ixx" />
+    <ClCompile Include="GLAD\GLAD3-V3.ixx" />
+    <ClCompile Include="GLAD\GLAD4-V0.ixx" />
+    <ClCompile Include="GLAD\GLAD4-V1.ixx" />
+    <ClCompile Include="GLAD\GLAD4-V2.ixx" />
+    <ClCompile Include="GLAD\GLAD4-V3.ixx" />
+    <ClCompile Include="GLAD\GLAD4-V4.ixx" />
+    <ClCompile Include="GLAD\GLAD4-V5.ixx" />
+    <ClCompile Include="GLAD\GLAD4-V6.ixx" />
+    <ClCompile Include="GLAD\GLADMacros.ixx" />
+    <ClCompile Include="GLAD\GLADTypes.ixx" />
+    <ClCompile Include="GLAD\GLADBase.ixx" />
     <ClCompile Include="GLM\glm\modules\GLM-common.ixx" />
     <ClCompile Include="GLM\glm\modules\GLM-detail_compute_common.ixx" />
     <ClCompile Include="GLM\glm\modules\GLM-detail_compute_vector_relational.ixx" />

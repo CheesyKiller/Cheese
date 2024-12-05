@@ -1,7 +1,9 @@
 import RenderObjectMaterialManager;
 
-namespace RenderObject {
+import std;
+import RenderObjectMaterial;
 
+namespace RenderObject {
     Material::Material(const std::string& materialName)
         : name(materialName),
         baseColor(1.0f, 1.0f, 1.0f, 1.0f),
@@ -35,7 +37,7 @@ namespace RenderObject {
         }
         else {
             // Add new material
-            auto materialPtr = std::make_shared<Material>(material);
+            std::shared_ptr<Material> materialPtr = std::make_shared<Material>(material);
             materials[material.name] = materialPtr;
             return materialPtr;
         }

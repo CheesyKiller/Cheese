@@ -25,12 +25,6 @@
     <Filter Include="Matts Custom Libraries\GLAD">
       <UniqueIdentifier>{e04c3a7d-2332-47e4-aad7-f55f2e5ea3a6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Matts Custom Libraries\GLAD\Glad Module Files">
-      <UniqueIdentifier>{f639bf77-daa3-42fa-a0ae-447c4e3e7bb7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Matts Custom Libraries\GLAD\Glad Source Files">
-      <UniqueIdentifier>{806c4fa2-873e-484d-91a3-b6c6b6649d82}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Matts Custom Libraries\GLM">
       <UniqueIdentifier>{3564ba5e-7b9e-4dc2-a223-457c9a531df5}</UniqueIdentifier>
     </Filter>
@@ -55,6 +49,90 @@
     <Filter Include="Matts Custom Libraries\GLAD\WGL">
       <UniqueIdentifier>{9f6b9b59-d311-451f-9342-e8ccfee73a1f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Matts Custom Libraries\Objects\RenderObject">
+      <UniqueIdentifier>{1bcf9da8-0b70-4107-a5a0-ac4753ded97f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\Objects\RenderObject\Data">
+      <UniqueIdentifier>{27221c87-1880-42a3-8195-e2c1bb4ef803}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\Objects\RenderObject\Helpers">
+      <UniqueIdentifier>{8f3a1ded-755f-46aa-82ff-30ec91254909}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\Objects\RenderObject\Data\NodeHandling">
+      <UniqueIdentifier>{acbed29c-35c0-4c09-810e-329764ee57d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V1">
+      <UniqueIdentifier>{d32f20d4-d134-4cb8-a5f7-3e1e23c05c4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V2">
+      <UniqueIdentifier>{1e5c83b6-56e4-4a67-b72e-01d822633e9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V3">
+      <UniqueIdentifier>{60781f2c-b8cb-48c8-bc10-9a821397527d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V4">
+      <UniqueIdentifier>{f71d230a-5a4f-43b2-9f9b-44f50dc61ddd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\Objects\RenderObject\Helpers\BlenderImpl">
+      <UniqueIdentifier>{cea5d6d7-e18d-44fd-823d-3a068e203e7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V1\1.0">
+      <UniqueIdentifier>{9df68713-a227-40bd-9b26-68165ce0f6fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V1\1.1">
+      <UniqueIdentifier>{af4bfcac-a062-4c0d-8e80-0158b8717ecd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V1\1.2">
+      <UniqueIdentifier>{7f5d996c-1df6-43ab-88b9-fa7b98500145}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V1\1.3">
+      <UniqueIdentifier>{86a9965a-4759-4f1c-bfc0-5a29106eed62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V1\1.4">
+      <UniqueIdentifier>{dde7a4d9-e292-4546-ba8d-0ff18ec653b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V1\1.5">
+      <UniqueIdentifier>{4af9ebc3-4837-49c9-af8f-cd790f13afaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V2\2.0">
+      <UniqueIdentifier>{e6dfcb42-bcde-4e84-8f0f-0f6aad5a74ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V2\2.1">
+      <UniqueIdentifier>{96c63523-b49f-45b2-b561-5b0561031707}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V3\3.0">
+      <UniqueIdentifier>{871b2e24-9da5-4c07-bb7d-2a5cf028e083}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V3\3.1">
+      <UniqueIdentifier>{20ed3130-dcbe-4130-9fba-999104674a7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V3\3.2">
+      <UniqueIdentifier>{45a0a61a-03db-4538-beb8-d09ca18cd892}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V3\3.3">
+      <UniqueIdentifier>{810436e8-4c09-48f9-8ee8-95a2ddc08b3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V4\4.0">
+      <UniqueIdentifier>{24b8d455-9202-4cb8-995a-ef1b513dba35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V4\4.1">
+      <UniqueIdentifier>{3aac38fc-ca44-4cf6-99e0-fc0e73f144d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V4\4.2">
+      <UniqueIdentifier>{6da66120-a47c-4bf6-8e8f-493a706423bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V4\4.3">
+      <UniqueIdentifier>{550bff1f-bee6-4253-9a52-1791afca05bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V4\4.4">
+      <UniqueIdentifier>{25f6ad36-86c1-4494-ab70-c7bb2557c4f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V4\4.5">
+      <UniqueIdentifier>{da13f1bb-0a6c-4f26-8bf8-4d784010c499}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matts Custom Libraries\GLAD\V4\4.6">
+      <UniqueIdentifier>{abfca363-a35a-4e11-8346-42aa1d581eea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cheese.cpp">
@@ -62,78 +140,6 @@
     </ClCompile>
     <ClCompile Include="KHR\KHR.ixx">
       <Filter>Matts Custom Libraries\KHR</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V2_1.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V3_0.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V3_1.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V3_2.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V3_3.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V4_0.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V4_1.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V4_2.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V4_3.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V4_4.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V4_5.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V4_6.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-BASE.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-Macros.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-Types.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V1_0.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V1_1.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V1_2.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V1_3.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V1_4.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V1_5.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD-V2_0.ixx">
-      <Filter>Matts Custom Libraries\GLAD\Glad Module Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GLAD\GLAD.cppm">
-      <Filter>Matts Custom Libraries\GLAD\Glad Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GLM\glm\modules\GLM-detail_compute_common.ixx">
       <Filter>Matts Custom Libraries\GLM</Filter>
@@ -852,61 +858,16 @@
     <ClCompile Include="Shader.cpp">
       <Filter>Matts Custom Libraries\Shaders</Filter>
     </ClCompile>
-    <ClCompile Include="RenderObject.ixx">
-      <Filter>Matts Custom Libraries\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderObject.cpp">
-      <Filter>Matts Custom Libraries\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="WindowManager.cpp">
       <Filter>Matts Custom Libraries\WindowContext</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderObjectData.ixx">
-      <Filter>Matts Custom Libraries\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderObjectKeyframe.ixx">
-      <Filter>Matts Custom Libraries\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderObjectShapeKey.ixx">
-      <Filter>Matts Custom Libraries\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderObjectMaterial.ixx">
-      <Filter>Matts Custom Libraries\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderObjectMaterialManager.ixx">
-      <Filter>Matts Custom Libraries\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderObjectMaterialManager.cpp">
-      <Filter>Matts Custom Libraries\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderObjectBlenderReader.ixx">
-      <Filter>Matts Custom Libraries\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderObjectBlenderReader.cpp">
-      <Filter>Matts Custom Libraries\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderObjectBlenderPython.ixx">
-      <Filter>Matts Custom Libraries\Objects</Filter>
     </ClCompile>
     <ClCompile Include="DebugVectorOutput.ixx">
       <Filter>Matts Custom Libraries\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="RenderObjectThreadedLoader.ixx">
-      <Filter>Matts Custom Libraries\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderObjectThreadedLoader.cpp">
-      <Filter>Matts Custom Libraries\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderObjectTexture.ixx">
-      <Filter>Matts Custom Libraries\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderObjectTexture.cpp">
-      <Filter>Matts Custom Libraries\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="StaticSystemPaths.ixx">
       <Filter>Matts Custom Libraries\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="GLAD-WGL.ixx">
+    <ClCompile Include="GLADWGL-WGL.ixx">
       <Filter>Matts Custom Libraries\GLAD\WGL</Filter>
     </ClCompile>
     <ClCompile Include="WindowContextCamera.ixx">
@@ -914,6 +875,276 @@
     </ClCompile>
     <ClCompile Include="WindowContextCamera.cpp">
       <Filter>Matts Custom Libraries\WindowContext</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectNodeInput.ixx">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Data\NodeHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectNodeOutput.ixx">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Data\NodeHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectNode.ixx">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Data\NodeHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectNodeLink.ixx">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Data\NodeHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectNodeTree.ixx">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Data\NodeHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectBlenderPython.ixx">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Helpers\BlenderImpl</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectBlenderReader.cpp">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Helpers\BlenderImpl</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectBlenderReader.ixx">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Helpers\BlenderImpl</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObject.cpp">
+      <Filter>Matts Custom Libraries\Objects\RenderObject</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObject.ixx">
+      <Filter>Matts Custom Libraries\Objects\RenderObject</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectData.ixx">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectKeyframe.ixx">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectMaterial.ixx">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectShapeKey.ixx">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectTexture.cpp">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectTexture.ixx">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectMaterialManager.cpp">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectMaterialManager.ixx">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectThreadedLoader.cpp">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectThreadedLoader.ixx">
+      <Filter>Matts Custom Libraries\Objects\RenderObject\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD.cppm">
+      <Filter>Matts Custom Libraries\GLAD</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD.ixx">
+      <Filter>Matts Custom Libraries\GLAD</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLADBase.ixx">
+      <Filter>Matts Custom Libraries\GLAD</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLADMacros.ixx">
+      <Filter>Matts Custom Libraries\GLAD</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLADTypes.ixx">
+      <Filter>Matts Custom Libraries\GLAD</Filter>
+    </ClCompile>
+    <ClCompile Include="GLADWGL-WGL.cpp">
+      <Filter>Matts Custom Libraries\GLAD\WGL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD1.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V1</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD1-V0.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.0</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD1-V0.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.0</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD1-A0.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.0</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD1-V1.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.1</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD1-A1.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.1</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD1-V1.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.1</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD1-V2.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.2</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD1-A2.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.2</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD1-V2.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.2</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD1-V3.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.3</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD1-A3.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.3</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD1-V3.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.3</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD1-V4.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.4</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD1-V4.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.4</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD1-A4.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.4</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD1-V5.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.5</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD1-V5.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.5</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD1-A5.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V1\1.5</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD2-V0.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V2\2.0</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD2-V0.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V2\2.0</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD2-A0.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V2\2.0</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD2-V1.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V2\2.1</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD2-V1.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V2\2.1</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD2-A1.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V2\2.1</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD2.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V2</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD3-V0.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V3\3.0</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD3-V0.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V3\3.0</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD3-A0.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V3\3.0</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD3-V1.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V3\3.1</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD3-V1.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V3\3.1</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD3-A1.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V3\3.1</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD3-V2.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V3\3.2</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD3-V2.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V3\3.2</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD3-A2.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V3\3.2</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD3-V3.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V3\3.3</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD3-V3.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V3\3.3</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD3-A3.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V3\3.3</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD3.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V3</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD4-V0.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.0</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD4-V0.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.0</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD4-A0.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.0</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD4-V1.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.1</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD4-V1.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.1</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD4-A1.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.1</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD4-V2.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.2</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD4-V2.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.2</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD4-A2.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.2</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD4-V3.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.3</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD4-V3.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.3</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD4-A3.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.3</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD4-V4.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.4</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD4-V4.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.4</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD4-A4.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.4</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD4-V5.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.5</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD4-V5.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.5</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD4-A5.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.5</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD\GLAD4-V6.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.6</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD4-V6.cpp">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.6</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD4-A6.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V4\4.6</Filter>
+    </ClCompile>
+    <ClCompile Include="GLAD4.ixx">
+      <Filter>Matts Custom Libraries\GLAD\V4</Filter>
+    </ClCompile>
+    <ClCompile Include="GLADWGL-AWGL.ixx">
+      <Filter>Matts Custom Libraries\GLAD\WGL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLADWGL-Types.ixx">
+      <Filter>Matts Custom Libraries\GLAD\WGL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLADWGL.ixx">
+      <Filter>Matts Custom Libraries\GLAD\WGL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

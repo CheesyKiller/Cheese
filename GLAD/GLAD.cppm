@@ -145,7 +145,7 @@ namespace GLAD {
     }
 
     int GLAD::gladLoadGLLoader(GLADloadproc load) {
-	    GLAD::GLAD_4_6::load_GL_RECURSIVE(load);
+	    GLAD::V4_6::load_GL_RECURSIVE(load);
         GLAD::load_WGL_BASE(load);
         return 1;
     }

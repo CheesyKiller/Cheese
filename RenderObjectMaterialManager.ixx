@@ -1,8 +1,7 @@
 export module RenderObjectMaterialManager;
 
-export import RenderObjectMaterial;
-
 import std.core;
+import RenderObjectMaterial;
 
 export namespace RenderObject {
     class MaterialManager {

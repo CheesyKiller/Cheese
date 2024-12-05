@@ -1,8 +1,10 @@
 export module RenderObjectData;
 
-export import RenderObjectShapeKey;
-export import RenderObjectMaterial;
+import GLM;
 import std;
+import RenderObjectKeyframe;
+import RenderObjectShapeKey;
+import RenderObjectMaterial;
 
 export namespace RenderObject {
     struct Data {

@@ -7,7 +7,7 @@ namespace WindowContext {
     // Constructors
     Camera::Camera(glm::vec3 position, glm::vec3 up, float yaw, float pitch)
         : position(position), worldUp(up), yaw(yaw), pitch(pitch), movementSpeed(0.002f),
-        mouseSensitivity(1.0f), zoom(45.0f) {
+        mouseSensitivity(0.1f), zoom(45.0f) {
         updateCameraVectors();
     }
 

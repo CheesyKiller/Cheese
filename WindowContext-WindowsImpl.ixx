@@ -17,26 +17,23 @@ export namespace WindowContext {
     LRESULT CALLBACK CustomWndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
     struct Impl {
-        HWND hwnd;       // Window handle for Windows
-        HDC hdc;         // Device context for OpenGL
-        HGLRC hglrc;     // OpenGL rendering context
+        HWND hwnd;
+        HDC hdc;
+        HGLRC hglrc; 
         std::function<void(int, int)> framebufferSizeCallback;
 
-        // Members for cursor capture and mouse delta calculation
         bool cursorCaptured = false;
         POINT centerPos = { 0, 0 };
         int deltaX = 0;
         int deltaY = 0;
 
         Impl(int width, int height, std::string_view title, Impl* sharedImpl = nullptr) {
-            // Step 1: Register window class
             WNDCLASS wc = { 0 };
             wc.lpfnWndProc = CustomWndProc;
             wc.hInstance = GetModuleHandle(nullptr);
             wc.lpszClassName = L"ContextHandlerWindowClass";
             RegisterClass(&wc);
 
-            // Step 2: Create the window
             hwnd = CreateWindowEx(
                 0,
                 L"ContextHandlerWindowClass",
@@ -50,11 +47,6 @@ export namespace WindowContext {
                 error("Failed to create window.");
             }
 
-            // Handle Resize events
-            // SetWindowLongPtr(hwnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(&framebufferSizeCallback));
-            // The GWLP_USERDATA is set in the window procedure on WM_NCCREATE
-
-            // Step 3: Set up pixel format for OpenGL
             hdc = GetDC(hwnd);
             PIXELFORMATDESCRIPTOR pfd = { sizeof(PIXELFORMATDESCRIPTOR), 1 };
             pfd.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER;
@@ -68,13 +60,11 @@ export namespace WindowContext {
                 error("Failed to set pixel format for Window " + std::string(title));
             }
 
-            // Step 4: Create OpenGL context
             hglrc = wglCreateContext(hdc);
             if (!hglrc) {
                 error("Failed to create OpenGL context for Window " + std::string(title));
             }
 
-            // Step 5: Share lists if a shared context is provided
             if (sharedImpl) {
                 if (!wglShareLists(sharedImpl->hglrc, hglrc)) {
                     wglDeleteContext(hglrc);
@@ -82,18 +72,18 @@ export namespace WindowContext {
                 }
             }
 
-            // Step 6: Make the context current
             if (!wglMakeCurrent(hdc, hglrc)) {
                 wglDeleteContext(hglrc);
                 error("Failed to make OpenGL context current");
             }
 
-            // Step 7: Load OpenGL functions via GLAD
             if (!GLAD::gladLoadGLLoader((GLAD::GLADloadproc)wglGetProcAddress)) {
                 wglMakeCurrent(nullptr, nullptr);
                 wglDeleteContext(hglrc);
                 error("Failed to initialize GLAD");
             }
+
+            SetForegroundWindow(hwnd);
         }
 
         ~Impl() {
@@ -107,35 +97,31 @@ export namespace WindowContext {
             }
         }
 
-        // Method to enable or disable cursor capture
         void EnableCursorCapture(bool enable) {
             if (enable && !cursorCaptured) {
-                // Hide the cursor
                 ShowCursor(FALSE);
 
-                // Get the client area center
                 RECT rect;
                 GetClientRect(hwnd, &rect);
                 centerPos.x = (rect.left + rect.right) / 2;
                 centerPos.y = (rect.top + rect.bottom) / 2;
 
-                // Convert client coordinates to screen coordinates
                 POINT centerScreen = { centerPos.x, centerPos.y };
                 ClientToScreen(hwnd, &centerScreen);
 
-                // Reposition the cursor to the center
                 SetCursorPos(centerScreen.x, centerScreen.y);
 
-                cursorCaptured = true;
+                // Note: windows will just decide to stop refreshing for some reason if it's not in the foreground upon switching
+                if (GetForegroundWindow() != hwnd) {
+                    SetForegroundWindow(hwnd);
+                }
             }
-            else if (!enable && cursorCaptured) {
-                // Show the cursor
+            if (!enable && cursorCaptured) {
                 ShowCursor(TRUE);
-                cursorCaptured = false;
             }
+            cursorCaptured = enable;
         }
 
-        // Method to retrieve and reset mouse deltas
         std::pair<int, int> GetMouseDeltas() {
             auto deltas = std::make_pair(deltaX, deltaY);
             deltaX = 0;
@@ -143,7 +129,6 @@ export namespace WindowContext {
             return deltas;
         }
 
-        // Method to center the cursor
         void CenterCursor() {
             RECT rect;
             GetClientRect(hwnd, &rect);
@@ -177,23 +162,23 @@ export namespace WindowContext {
 
             case WM_MOUSEMOVE: {
                 if (impl->cursorCaptured) {
-                    // Current cursor position
                     POINT currentPos;
                     GetCursorPos(&currentPos);
                     ScreenToClient(hwnd, &currentPos);
 
-                    // Calculate delta from center
-                    int deltaX = currentPos.x - impl->centerPos.x;
-                    int deltaY = currentPos.y - impl->centerPos.y;
+                    int offsetX = currentPos.x - impl->centerPos.x;
+                    int offsetY = currentPos.y - impl->centerPos.y;
 
-                    // Accumulate deltas
-                    impl->deltaX += deltaX;
-                    impl->deltaY += deltaY;
+                    if (offsetX != 0 || offsetY != 0) {
+                        impl->deltaX += offsetX;
+                        impl->deltaY += offsetY;
 
-                    // Re-center the cursor
-                    impl->CenterCursor();
+                        if (abs(offsetX) > 5 || abs(offsetY) > 5) {
+                            impl->CenterCursor();
+                        }
+                    }
 
-                    return 0; // We've handled the message
+                    return 0;
                 }
                 break;
             }
@@ -236,13 +221,15 @@ export namespace WindowContext {
         return shouldClose;
     }
 
+    bool Window::checkIfActive() {
+        return GetForegroundWindow() == impl->hwnd;
+    }
+
     void Window::SetTitle(std::string title) {
-        // Convert std::string (UTF-8) to std::wstring (UTF-16)
         int wideSize = MultiByteToWideChar(CP_UTF8, 0, title.c_str(), -1, nullptr, 0);
         std::wstring wideTitle(wideSize, L'\0');
         MultiByteToWideChar(CP_UTF8, 0, title.c_str(), -1, &wideTitle[0], wideSize);
 
-        // Set the window title
         SetWindowTextW(impl->hwnd, wideTitle.c_str());
     }
 
@@ -306,8 +293,6 @@ export namespace WindowContext {
     void Window::ResizeViewport(int width, int height) {
         GLAD::glViewport(0, 0, width, height);
     }
-
-    // Implementations for cursor capture and mouse delta handling
 
     void Window::EnableCursorCapture(bool enable) {
         impl->EnableCursorCapture(enable);

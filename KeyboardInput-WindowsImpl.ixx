@@ -247,11 +247,11 @@ export namespace Input {
 	}
 
 	void InputManager::Update() {
-		for (auto& key : monitoredKeys) {
-			bool newState = GetAsyncKeyState(key) & 0x8000;
-			keysJustPressed[key] = newState && !keysCurrentState[key];
-			keysJustReleased[key] = !newState && keysCurrentState[key];
-			keysCurrentState[key] = newState;
+		if (WindowManager::getInstance()->checkForActiveWindow()) {
+			for (auto& key : monitoredKeys) {
+				keysPreviousState[key] = keysCurrentState[key];
+				keysCurrentState[key] = GetAsyncKeyState(key) & 0x8000;
+			}
 		}
 	}
 }

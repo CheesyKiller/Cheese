@@ -23,7 +23,6 @@ void WindowManager::createWindow(const std::string& windowName, std::function<vo
     std::function<void()> perFrameCode, int width, int height,
     const std::string& parentWindowName)
 {
-    // Find parent window if specified
     WindowContext::Window* parentWindow = nullptr;
     if (!parentWindowName.empty()) {
         auto it = std::find_if(windows.begin(), windows.end(),
@@ -39,7 +38,6 @@ void WindowManager::createWindow(const std::string& windowName, std::function<vo
         }
     }
 
-    // Create the window
     if (parentWindow) {
         windows.push_back(std::make_shared<WindowContext::Window>(windowName, width, height, parentWindow));
     }
@@ -47,10 +45,8 @@ void WindowManager::createWindow(const std::string& windowName, std::function<vo
         windows.push_back(std::make_shared<WindowContext::Window>(windowName, width, height));
     }
 
-    // Register per-frame callback
     perFrameCodes.push_back(std::move(perFrameCode));
 
-    // Initialize the window
     auto& newWindow = windows.back();
     newWindow->MakeCurrent();
     if (!windowName.empty() && windowName[0] == '_') {
@@ -130,4 +126,13 @@ std::shared_ptr<WindowContext::Camera> WindowManager::getWindowCamera(const std:
         }
     }
     return nullptr;
+}
+
+bool WindowManager::checkForActiveWindow() {
+    for (int i = 0; i < windows.size(); ++i) {
+        if (windows[i]->checkIfActive()) {
+            return true;
+        }
+    }
+    return false;
 }

@@ -15,6 +15,7 @@ export namespace WindowContext {
 
         void Close();
         bool ShouldClose();
+		bool checkIfActive();
 
         void SetTitle(std::string title);
         std::string GetTitle() const;

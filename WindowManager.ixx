@@ -24,6 +24,7 @@ export struct WindowManager {
     void close();
 
     std::shared_ptr<WindowContext::Camera> getWindowCamera(const std::string& windowName);
+    bool checkForActiveWindow();
 
     WindowManager(const WindowManager&) = delete;
     WindowManager& operator=(const WindowManager&) = delete;

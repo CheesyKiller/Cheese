@@ -1,28 +1,29 @@
 {
   "NAME": {
-    "EN": "Extrapolation Of C++ Headers Into Modules",
-    "JA": "Extrapolation Of C++ Headers Into Modules"
+    "EN": "Extrapolation Of C++ Headers Into C++ Modules",
+    "JA": "C++ ヘッダーの C++ モジュール化"
   },
   "DESCRIPTION": {
-    "EN": "Description",
-    "JA": "Description"
+    "EN": "In this project I was experimenting with optomization of the compilation of a series of existing projects by converting their Header based architecture into the newer module based architecture. I was able to successfully complete KHR, GLAD, and GLM. Once I approached implimenting these changes into Vulkan, I realized they released a modularized package already. The only issue with this modularized package is that the rest of the math functions and foundations in the other packages I've shown were not updated to modules.",
+    "JA": "本プロジェクトでは、既存の複数プロジェクトにおけるヘッダーベースのアーキテクチャを、より新しいモジュールベースのアーキテクチャへ移行することで、コンパイル最適化の検証を行いました。KHR、GLAD、GLM についてはモジュール化を問題なく完了させることができましたが、Vulkan への適用を検討した際、すでに公式からモジュール化されたパッケージが提供されていることが判明しました。ただし、このモジュール化パッケージでは、他の関連パッケージで使用されている数学関数や基盤部分がモジュール対応されていない点が課題となっています。"
   },
   "DATE_OF_LAST_EDIT": {
-    "EN": "Date",
-    "JA": "Date"
+    "DAY": 11,
+    "MONTH": 2,
+    "YEAR": 2025
   },
   "PROJECT_LANGUAGES": [
     {
-      "EN": "Language",
-      "JA": "Langeage"
+      "EN": "C++",
+      "JA": "C++"
     },
     {
-      "EN": "Language",
-      "JA": "Language"
+      "EN": "Python (For Scripting)",
+      "JA": "Python（スクリプト用途）"
     },
     {
-      "EN": "Language",
-      "JA": "Language"
+      "EN": "GLSL",
+      "JA": "GLSL"
     }
   ]
 }

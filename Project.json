@@ -1,0 +1,28 @@
+{
+  NAME: {
+    EN: "Extrapolation Of C++ Headers Into Modules",
+    JA: "Extrapolation Of C++ Headers Into Modules"
+  },
+  DESCRIPTION: {
+    EN: "Description",
+    JA: "Description"
+  },
+  DATE_OF_LAST_EDIT: {
+    EN: "Date",
+    JA: "Date"
+  },
+  PROJECT_LANGUAGES: [
+    {
+      EN: "Language",
+      JA: "Langeage"
+    },
+    {
+      EN: "Language",
+      JA: "Language"
+    },
+    {
+      EN: "Language",
+      JA: "Language"
+    }
+  ]
+}
